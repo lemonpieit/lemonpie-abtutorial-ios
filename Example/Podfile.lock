@@ -1,0 +1,16 @@
+PODS:
+  - ABtutorial (0.1.0)
+
+DEPENDENCIES:
+  - ABtutorial (from `../`)
+
+EXTERNAL SOURCES:
+  ABtutorial:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ABtutorial: 60164b870c395bc9ab9174344a2428d5672526de
+
+PODFILE CHECKSUM: 8ba4e4ca423117dcce2820ff26bf408cdf650496
+
+COCOAPODS: 1.10.0

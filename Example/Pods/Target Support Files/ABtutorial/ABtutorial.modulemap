@@ -1,0 +1,6 @@
+framework module ABtutorial {
+  umbrella header "ABtutorial-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ABtutorial_Example' do
+  pod 'ABtutorial', :path => '../'
+
+  target 'ABtutorial_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
