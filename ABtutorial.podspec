@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'ABtutorial'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of ABtutorial.'
+  s.summary          = 'A customizable tutorial onboarding.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,25 +18,24 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+    'A customizable tutorial onboarding with Lottie animations.'
                        DESC
-
-  s.homepage         = 'https://github.com/fraleo2406/ABtutorial'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+                       
+  s.homepage         = 'https://abenergie.visualstudio.com/ABtutorial.ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'fraleo2406' => 'francesco.leoni@abenergie.it' }
-  s.source           = { :git => 'https://github.com/fraleo2406/ABtutorial.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.ios.deployment_target = '8.0'
-
-  s.source_files = 'ABtutorial/Classes/**/*'
+  s.author           = { 'Luigi Aiello' => 'luigi.aiello@abenergie.it', 'Francesco Leoni' => 'francesco.leoni@abenergie.it' }
+  s.source           = { :git => 'https://abenergie.visualstudio.com/_git/ABtutorial.ios', :tag => 'v0.1.0' }
+  s.social_media_url = 'https://github.com/fraleo2406'
+  s.social_media_url = 'https://github.com/mo3bius'
+                       
+  s.source_files = 'Source/**/*.swift'
+  s.swift_version = '5.2'
+  s.platform = :ios, '11.0'
   
   # s.resource_bundles = {
   #   'ABtutorial' => ['ABtutorial/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
