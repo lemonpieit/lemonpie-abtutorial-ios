@@ -4,7 +4,7 @@
 <br/>
 
 <div align="center">
-<img width="256" height="256" src="ABtutorial_logo.png">
+<img width="256" height="256" src="https://abenergie.visualstudio.com/2cd1c72b-5531-41dc-8dcb-437d29801dcc/_apis/git/repositories/2a41da94-647a-4081-a5d5-d5871a66a14b/items?path=%2FABtutorial_logo.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=octetStream&api-version=5.0">
 </div>
 
 <br/>
