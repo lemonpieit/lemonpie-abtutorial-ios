@@ -1,22 +1,26 @@
 {
   "name": "ABtutorial",
   "version": "0.1.0",
-  "summary": "A short description of ABtutorial.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/fraleo2406/ABtutorial",
+  "summary": "A customizable tutorial onboarding.",
+  "description": "'A customizable tutorial onboarding with Lottie animations.'",
+  "homepage": "https://abenergie.visualstudio.com/ABtutorial.ios",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "fraleo2406": "francesco.leoni@abenergie.it"
+    "Luigi Aiello": "luigi.aiello@abenergie.it",
+    "Francesco Leoni": "francesco.leoni@abenergie.it"
   },
   "source": {
-    "git": "https://github.com/fraleo2406/ABtutorial.git",
-    "tag": "0.1.0"
+    "git": "https://abenergie.visualstudio.com/_git/ABtutorial.ios",
+    "tag": "v0.1.0"
   },
+  "social_media_url": "https://github.com/mo3bius",
+  "source_files": "Source/**/*.swift",
+  "swift_versions": "5.2",
   "platforms": {
-    "ios": "8.0"
+    "ios": "11.0"
   },
-  "source_files": "ABtutorial/Classes/**/*"
+  "swift_version": "5.2"
 }

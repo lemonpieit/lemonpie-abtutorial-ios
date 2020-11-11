@@ -30,7 +30,7 @@ install! 'cocoapods',
 
 ## Usage
 ```ruby
-pod 'ABtutorial'
+pod 'ABtutorial', :git => 'https://abenergie.visualstudio.com/_git/ABtutorial.ios'
 ```
 
 <br/>

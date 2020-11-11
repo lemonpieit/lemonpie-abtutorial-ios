@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ABtutorial: UIViewController {
+public final class ABtutorial: UIViewController {
 
-    override func viewDidLoad() {
+  public override func viewDidLoad() {
         super.viewDidLoad()
 
     }
