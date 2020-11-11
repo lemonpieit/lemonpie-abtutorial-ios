@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import ABtutorial
 
 class ViewController: UIViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    let tutorial = ABtutorial(name: "servishero-loading")
+    navigationController?.present(tutorial, animated: true)
   }
-
+  
 }
 

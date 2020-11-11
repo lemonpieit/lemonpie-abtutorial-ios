@@ -32,10 +32,11 @@ Pod::Spec.new do |s|
   s.swift_version = '5.2'
   s.platform = :ios, '11.0'
   
+  s.dependency 'lottie-ios', '~> 3.1.9'
+  
   # s.resource_bundles = {
   #   'ABtutorial' => ['ABtutorial/Assets/*.png']
   # }
 
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

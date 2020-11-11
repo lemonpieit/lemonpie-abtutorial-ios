@@ -6,6 +6,7 @@ target 'ABtutorial_Example' do
   target 'ABtutorial_Tests' do
     inherit! :search_paths
 
-    
+    pod 'lottie-ios'
+
   end
 end

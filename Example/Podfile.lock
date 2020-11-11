@@ -1,16 +1,24 @@
 PODS:
-  - ABtutorial (0.1.0)
+  - ABtutorial (0.1.0):
+    - lottie-ios (~> 3.1.9)
+  - lottie-ios (3.1.9)
 
 DEPENDENCIES:
   - ABtutorial (from `../`)
+  - lottie-ios
+
+SPEC REPOS:
+  trunk:
+    - lottie-ios
 
 EXTERNAL SOURCES:
   ABtutorial:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ABtutorial: 1a485e25226c6809e270a5318bbb878e96e7d93b
+  ABtutorial: 3e5c2a62e8facf727648258a764d3b45c36edd0d
+  lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
 
-PODFILE CHECKSUM: 8ba4e4ca423117dcce2820ff26bf408cdf650496
+PODFILE CHECKSUM: d9c7c86c9c80638535d4d3373b87cde84b29f85d
 
 COCOAPODS: 1.10.0
