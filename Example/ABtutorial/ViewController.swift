@@ -14,9 +14,16 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let animation = ABTLottieAnimation(filepath: "/Users/francescoleoni/Desktop/ABtutorial.ios/Example/ABtutorial/Animations/servishero-loading.json")
-    animation.speed = 0.8
-    
+    let customerCodeStep1 = ABTLottieAnimation(name: "step_01_data")
+    customerCodeStep1.speed = 0.8
+    customerCodeStep1.loopMode = .loop
+    customerCodeStep1.contentMode = .redraw
+
+    let customerCodeStep2 = ABTLottieAnimation(name: "step_02_data")
+    customerCodeStep2.speed = 0.8
+    customerCodeStep2.loopMode = .loop
+    customerCodeStep2.contentMode = .redraw
+
     let button = ABTButtonAppearance(titleColor: .white,
                                      backgroundColor: .systemBlue,
                                      cornerRadius: .rounded,
@@ -29,9 +36,9 @@ class ViewController: UIViewController {
                                            textFont: .systemFont(ofSize: 18, weight: .regular),
                                            nextButtonAppearance: button)
     
-    let page = ABTOnboardPage(title: "Controlli gestione budget",
-                              description: "Spesso controllare le tue spese può sembrare una missione impossibile, ma abbiamo fatto di tutto per semplificare il processo. Imposta un budget per le tue spese e monitoreremo le tue spese in tempo reale.",
-                              animation: animation,
+    let page = ABTOnboardPage(title: "Codice cliente",
+                              description: "Puoi trovare il tuo codice cliente nell'angolo in alto a destra della prima pagina della bolletta ABenergie.",
+                              animation: customerCodeStep1,
                               nextButtonTitle: "Controlla costi",
                               actionButtonTitle: "Action",
                               action: { succ in
@@ -39,16 +46,12 @@ class ViewController: UIViewController {
                                 print("VALERIA MARINI")
                               })
     
-    let page2 = ABTOnboardPage(title: "Controlli gestione budget",
-                               description: "Spesso controllare le tue spese può sembrare una missione impossibile, ma abbiamo fatto di tutto per semplificare il processo.\nImposta un budget per le tue spese e monitoreremo le tue spese in tempo reale.",
-                               animation: animation,
-                               nextButtonTitle: "Ho capito!")
-    
-    let page3 = ABTOnboardPage(title: "Controlli gestione budget",
-                               description: "Spesso controllare le tue spese può sembrare una missione impossibile, ma abbiamo fatto di tutto per semplificare il processo.\nImposta un budget per le tue spese e monitoreremo le tue spese in tempo reale.",
+    let page2 = ABTOnboardPage(title: "Codice di conferma",
+                               description: "Per completare la registrazione ti verrà inviato un codice di conferma al contatto che hai lasciato in fase di sottoscrizione del contratto di fornitura con ABenergie.",
+                               animation: customerCodeStep2,
                                nextButtonTitle: "Ho capito!")
 
-    let tutorial = ABTutorial(pageItems: [page, page2, page3],
+    let tutorial = ABTutorial(pageItems: [page, page2],
                               pageAppearance: pageAppearance) {
                                 print("Done")
                               }
