@@ -109,6 +109,7 @@
 		A16F8934A6E5CB88B965756A1FC8C750 /* lottie-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 883239A4EFF509742A2F6D33B6FF6749 /* lottie-ios-dummy.m */; };
 		A184A7069E713D6FF51DA057650F8428 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03759F2E6C2148B126D29F3A1E25074 /* Star.swift */; };
 		A3F12DFBCB3AC8D4CB42A85F81E9821E /* ShapeLayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710952D41724BB7D28D0EC3BF8776D01 /* ShapeLayerModel.swift */; };
+		A52372E0255EF8470005D3F4 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52372DF255EF8470005D3F4 /* Array.swift */; };
 		A59502581CAD5FD01567EAB82A20FC40 /* AnimationKeypath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59499C8FEC9FA83E1427CF6664BEFBAC /* AnimationKeypath.swift */; };
 		A5B4C13B255D26AC007F8DB3 /* ABTPageAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4C139255D26AB007F8DB3 /* ABTPageAppearance.swift */; };
 		A5B4C13C255D26AC007F8DB3 /* ABTButtonAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4C13A255D26AB007F8DB3 /* ABTButtonAppearance.swift */; };
@@ -313,6 +314,7 @@
 		9F6B6C5D6D4488F74BBC9559A8A737FF /* KeyframeGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyframeGroup.swift; path = "lottie-swift/src/Private/Model/Keyframes/KeyframeGroup.swift"; sourceTree = "<group>"; };
 		9FA2EBAA33F3070112B84DCB7B668BE5 /* GroupInterpolator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GroupInterpolator.swift; path = "lottie-swift/src/Private/NodeRenderSystem/NodeProperties/ValueProviders/GroupInterpolator.swift"; sourceTree = "<group>"; };
 		A104A1CCF35AE63847411F8D7E7FBD84 /* Transform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transform.swift; path = "lottie-swift/src/Private/Model/Objects/Transform.swift"; sourceTree = "<group>"; };
+		A52372DF255EF8470005D3F4 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		A5A66DA584518631385A4F8F375C21A8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A5B4C139255D26AB007F8DB3 /* ABTPageAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABTPageAppearance.swift; sourceTree = "<group>"; };
 		A5B4C13A255D26AB007F8DB3 /* ABTButtonAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABTButtonAppearance.swift; sourceTree = "<group>"; };
@@ -614,6 +616,14 @@
 			name = Pod;
 			sourceTree = "<group>";
 		};
+		A52372DE255EF83A0005D3F4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A52372DF255EF8470005D3F4 /* Array.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A5B4C138255D26AB007F8DB3 /* Appearance */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,6 +700,7 @@
 				A5B4C140255D26BF007F8DB3 /* ABTOnboardingPageViewController.swift */,
 				A5B4C138255D26AB007F8DB3 /* Appearance */,
 				A5B4C13D255D26B8007F8DB3 /* Page */,
+				A52372DE255EF83A0005D3F4 /* Extensions */,
 				982E05C75523561D99CDBCC2B63616C0 /* Pod */,
 				03C4081A5F5235B382A53A8B3E40D981 /* Support Files */,
 			);
@@ -921,6 +932,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A52372E0255EF8470005D3F4 /* Array.swift in Sources */,
 				3340063CCB30A16518C7BD101E477EEC /* ABtutorial-dummy.m in Sources */,
 				A5B4C13F255D26B8007F8DB3 /* ABTOnboardPage.swift in Sources */,
 				A5B4C13C255D26AC007F8DB3 /* ABTButtonAppearance.swift in Sources */,

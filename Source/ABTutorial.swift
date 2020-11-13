@@ -132,7 +132,6 @@ extension ABTutorial: ABTOnboardingPageViewControllerDelegate {
     if let pageAction = pageItems[index].action {
       pageAction { (showNextPage, error) in
         if let error = error {
-          print("Error")
           print(error.localizedDescription)
           return
         }
