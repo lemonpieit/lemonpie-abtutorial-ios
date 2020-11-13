@@ -13,7 +13,7 @@
 		065DAD123F150B16072DF629F28C8543 /* ShapeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FA5B800AB8AC480E01E9351D0B38C9 /* ShapeTransform.swift */; };
 		0945DE6AAD89DA7DC7082AED471CBFF6 /* FillI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC46796A26AAD319B49BC66EA3923130 /* FillI.swift */; };
 		0A14A88266ED01E389C348E2CD9CD099 /* LayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC5B47C379F7FD6F0732EA809A49EB7 /* LayerModel.swift */; };
-		0B3F7EF8A9BFA1AA9CD6CDF85B7716CE /* ABtutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BBE303F2D6FEB96CAECE22DA100A5 /* ABtutorial.swift */; };
+		0B3F7EF8A9BFA1AA9CD6CDF85B7716CE /* ABTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BBE303F2D6FEB96CAECE22DA100A5 /* ABTutorial.swift */; };
 		0C2BF6B292A2851D1F36243341F65E39 /* InterpolatableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422C136C95872E202FF427156BD0B04 /* InterpolatableExtensions.swift */; };
 		0C983B903FA6BE079582C5AB2EF8A1D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B3E249337283A3FEB5B16C7098B823 /* Foundation.framework */; };
 		0EAC1859D61566035A290924A692823E /* StrokeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA13C0ADEEF12AB14B717FFD98D08E7 /* StrokeNode.swift */; };
@@ -109,8 +109,13 @@
 		A16F8934A6E5CB88B965756A1FC8C750 /* lottie-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 883239A4EFF509742A2F6D33B6FF6749 /* lottie-ios-dummy.m */; };
 		A184A7069E713D6FF51DA057650F8428 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03759F2E6C2148B126D29F3A1E25074 /* Star.swift */; };
 		A3F12DFBCB3AC8D4CB42A85F81E9821E /* ShapeLayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710952D41724BB7D28D0EC3BF8776D01 /* ShapeLayerModel.swift */; };
-		A5165DB3255C3E260077467A /* servishero-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A5165DB2255C3E260077467A /* servishero-loading.json */; };
 		A59502581CAD5FD01567EAB82A20FC40 /* AnimationKeypath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59499C8FEC9FA83E1427CF6664BEFBAC /* AnimationKeypath.swift */; };
+		A5B4C13B255D26AC007F8DB3 /* ABTPageAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4C139255D26AB007F8DB3 /* ABTPageAppearance.swift */; };
+		A5B4C13C255D26AC007F8DB3 /* ABTButtonAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4C13A255D26AB007F8DB3 /* ABTButtonAppearance.swift */; };
+		A5B4C13F255D26B8007F8DB3 /* ABTOnboardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4C13E255D26B8007F8DB3 /* ABTOnboardPage.swift */; };
+		A5B4C141255D26BF007F8DB3 /* ABTOnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4C140255D26BF007F8DB3 /* ABTOnboardingPageViewController.swift */; };
+		A5B4C145255D3F54007F8DB3 /* ABTShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4C144255D3F54007F8DB3 /* ABTShadow.swift */; };
+		A5B4C147255D4038007F8DB3 /* ABTLottieAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4C146255D4038007F8DB3 /* ABTLottieAnimation.swift */; };
 		A6428E9B78BF5700838D9549A23D4199 /* FloatValueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7204BB4016468C7A18849E73C20F103 /* FloatValueProvider.swift */; };
 		A807225CA16DE1D2A500B7C35089EBAD /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2723788530C27ABCB726CA3EF78EAB34 /* ColorExtension.swift */; };
 		AB802E2CDCB6E037637D7E7803D52607 /* PointValueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AD0C80335BEA4D54790A8205C447AA /* PointValueProvider.swift */; };
@@ -308,8 +313,13 @@
 		9F6B6C5D6D4488F74BBC9559A8A737FF /* KeyframeGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyframeGroup.swift; path = "lottie-swift/src/Private/Model/Keyframes/KeyframeGroup.swift"; sourceTree = "<group>"; };
 		9FA2EBAA33F3070112B84DCB7B668BE5 /* GroupInterpolator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GroupInterpolator.swift; path = "lottie-swift/src/Private/NodeRenderSystem/NodeProperties/ValueProviders/GroupInterpolator.swift"; sourceTree = "<group>"; };
 		A104A1CCF35AE63847411F8D7E7FBD84 /* Transform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transform.swift; path = "lottie-swift/src/Private/Model/Objects/Transform.swift"; sourceTree = "<group>"; };
-		A5165DB2255C3E260077467A /* servishero-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "servishero-loading.json"; path = "../ABtutorial/servishero-loading.json"; sourceTree = "<group>"; };
 		A5A66DA584518631385A4F8F375C21A8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A5B4C139255D26AB007F8DB3 /* ABTPageAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABTPageAppearance.swift; sourceTree = "<group>"; };
+		A5B4C13A255D26AB007F8DB3 /* ABTButtonAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABTButtonAppearance.swift; sourceTree = "<group>"; };
+		A5B4C13E255D26B8007F8DB3 /* ABTOnboardPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABTOnboardPage.swift; sourceTree = "<group>"; };
+		A5B4C140255D26BF007F8DB3 /* ABTOnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ABTOnboardingPageViewController.swift; path = Source/ABTOnboardingPageViewController.swift; sourceTree = "<group>"; };
+		A5B4C144255D3F54007F8DB3 /* ABTShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABTShadow.swift; sourceTree = "<group>"; };
+		A5B4C146255D4038007F8DB3 /* ABTLottieAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABTLottieAnimation.swift; sourceTree = "<group>"; };
 		A5FE08FDDAC29FA1B84E57AAE46C7463 /* AnimatedControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedControl.swift; path = "lottie-swift/src/Public/iOS/AnimatedControl.swift"; sourceTree = "<group>"; };
 		A7204BB4016468C7A18849E73C20F103 /* FloatValueProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatValueProvider.swift; path = "lottie-swift/src/Public/DynamicProperties/ValueProviders/FloatValueProvider.swift"; sourceTree = "<group>"; };
 		AA32FA0C0411E436456BA7C98D5E3BF0 /* Pods-ABtutorial_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ABtutorial_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -346,7 +356,7 @@
 		CAB6662C205DA9BA6EAF8FE0A3733DC3 /* Pods-ABtutorial_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ABtutorial_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDC5B47C379F7FD6F0732EA809A49EB7 /* LayerModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayerModel.swift; path = "lottie-swift/src/Private/Model/Layers/LayerModel.swift"; sourceTree = "<group>"; };
 		D03759F2E6C2148B126D29F3A1E25074 /* Star.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Star.swift; path = "lottie-swift/src/Private/Model/ShapeItems/Star.swift"; sourceTree = "<group>"; };
-		D03BBE303F2D6FEB96CAECE22DA100A5 /* ABtutorial.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ABtutorial.swift; path = Source/ABtutorial.swift; sourceTree = "<group>"; };
+		D03BBE303F2D6FEB96CAECE22DA100A5 /* ABTutorial.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ABTutorial.swift; path = Source/ABTutorial.swift; sourceTree = "<group>"; };
 		D6675422991504EF5C230543B2DB6369 /* TextCompositionLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextCompositionLayer.swift; path = "lottie-swift/src/Private/LayerContainers/CompLayers/TextCompositionLayer.swift"; sourceTree = "<group>"; };
 		D8B78A23AAB0CD7FB4D02314CA0D6528 /* InvertedMatteLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InvertedMatteLayer.swift; path = "lottie-swift/src/Private/LayerContainers/Utility/InvertedMatteLayer.swift"; sourceTree = "<group>"; };
 		D9C2A9C233D82F410DC2528D99789E8D /* Color.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Color.swift; path = "lottie-swift/src/Public/Primitives/Color.swift"; sourceTree = "<group>"; };
@@ -604,6 +614,27 @@
 			name = Pod;
 			sourceTree = "<group>";
 		};
+		A5B4C138255D26AB007F8DB3 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				A5B4C139255D26AB007F8DB3 /* ABTPageAppearance.swift */,
+				A5B4C13A255D26AB007F8DB3 /* ABTButtonAppearance.swift */,
+				A5B4C144255D3F54007F8DB3 /* ABTShadow.swift */,
+			);
+			name = Appearance;
+			path = Source/Appearance;
+			sourceTree = "<group>";
+		};
+		A5B4C13D255D26B8007F8DB3 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				A5B4C13E255D26B8007F8DB3 /* ABTOnboardPage.swift */,
+				A5B4C146255D4038007F8DB3 /* ABTLottieAnimation.swift */,
+			);
+			name = Page;
+			path = Source/Page;
+			sourceTree = "<group>";
+		};
 		A7798734CB6B6CC78ADE07F0211B9A74 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,7 +686,10 @@
 		D25FB82B8FDCC228198A84A9980D5C75 /* ABtutorial */ = {
 			isa = PBXGroup;
 			children = (
-				D03BBE303F2D6FEB96CAECE22DA100A5 /* ABtutorial.swift */,
+				D03BBE303F2D6FEB96CAECE22DA100A5 /* ABTutorial.swift */,
+				A5B4C140255D26BF007F8DB3 /* ABTOnboardingPageViewController.swift */,
+				A5B4C138255D26AB007F8DB3 /* Appearance */,
+				A5B4C13D255D26B8007F8DB3 /* Page */,
 				982E05C75523561D99CDBCC2B63616C0 /* Pod */,
 				03C4081A5F5235B382A53A8B3E40D981 /* Support Files */,
 			);
@@ -666,7 +700,6 @@
 		DAE7D5BACB7E2A6DD96621EC9B9B1249 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A5165DB2255C3E260077467A /* servishero-loading.json */,
 				D25FB82B8FDCC228198A84A9980D5C75 /* ABtutorial */,
 			);
 			name = "Development Pods";
@@ -829,7 +862,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1160;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -857,7 +890,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5165DB3255C3E260077467A /* servishero-loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -890,7 +922,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3340063CCB30A16518C7BD101E477EEC /* ABtutorial-dummy.m in Sources */,
-				0B3F7EF8A9BFA1AA9CD6CDF85B7716CE /* ABtutorial.swift in Sources */,
+				A5B4C13F255D26B8007F8DB3 /* ABTOnboardPage.swift in Sources */,
+				A5B4C13C255D26AC007F8DB3 /* ABTButtonAppearance.swift in Sources */,
+				A5B4C147255D4038007F8DB3 /* ABTLottieAnimation.swift in Sources */,
+				0B3F7EF8A9BFA1AA9CD6CDF85B7716CE /* ABTutorial.swift in Sources */,
+				A5B4C13B255D26AC007F8DB3 /* ABTPageAppearance.swift in Sources */,
+				A5B4C141255D26BF007F8DB3 /* ABTOnboardingPageViewController.swift in Sources */,
+				A5B4C145255D3F54007F8DB3 /* ABTShadow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1089,7 +1127,6 @@
 			baseConfigurationReference = 90C3F4506E1A06EF95F47B8A1B353B32 /* Pods-ABtutorial_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1123,7 +1160,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F50A17FCE6F00B3C70C07EDC79430EE8 /* lottie-ios.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1154,7 +1190,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0105B092854411BF49F27C3881174EA8 /* ABtutorial.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1186,7 +1221,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C781BD80277890DA78B334E7145D65C6 /* lottie-ios.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1280,7 +1314,6 @@
 			baseConfigurationReference = 33B09C58DB999A5CE5E7669907A58534 /* Pods-ABtutorial_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1381,7 +1414,6 @@
 			baseConfigurationReference = 274468C63993AE93B393C0005468C006 /* Pods-ABtutorial_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1415,7 +1447,6 @@
 			baseConfigurationReference = CAB6662C205DA9BA6EAF8FE0A3733DC3 /* Pods-ABtutorial_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1448,7 +1479,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8585A89768F99E65079625DAA38C2784 /* ABtutorial.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
