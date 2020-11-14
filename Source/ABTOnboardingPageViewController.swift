@@ -31,6 +31,7 @@ internal final class ABTOnboardingPageViewController: UIViewController {
   // MARK: - Page elements
   
   private let pageStackView = UIStackView()
+  private let textStackView = UIStackView()
   private let buttonsStackView = UIStackView()
   private let titleLabel = UILabel()
   private let descriptionLabel = UILabel()
@@ -89,7 +90,7 @@ internal final class ABTOnboardingPageViewController: UIViewController {
   }
   
   private func configureUI() {
-    Style.stackView(pageStackView)
+    Style.stackView(pageStackView, textStackView)
     Style.buttonsStackView(buttonsStackView)
     Style.titleLabel(titleLabel)
     Style.descriptionLabel(descriptionLabel)
@@ -111,7 +112,7 @@ internal final class ABTOnboardingPageViewController: UIViewController {
   private func configureViews() {
     view.addSubview(pageStackView)
     view.addSubview(actionButton)
-    
+        
     [pageStackView.topAnchor.constraint(equalTo: actionButton.bottomAnchor, constant: 16),
      pageStackView.leftAnchor.constraint(equalTo: view.leftAnchor),
      pageStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
@@ -120,7 +121,8 @@ internal final class ABTOnboardingPageViewController: UIViewController {
     [actionButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
      actionButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)].activate()
     
-    [animationView, titleLabel, descriptionLabel, paddingView, buttonsStackView]
+    [titleLabel, descriptionLabel].addTo(textStackView)
+    [animationView, textStackView, buttonsStackView]
       .addTo(pageStackView)
     [nextButton]
       .addTo(buttonsStackView)
@@ -148,11 +150,14 @@ internal final class ABTOnboardingPageViewController: UIViewController {
 
 private extension ABTOnboardingPageViewController {
   enum Style {
-    static func stackView(_ view: UIStackView) {
-      view.translatesAutoresizingMaskIntoConstraints = false
-      view.spacing = 16
-      view.axis = .vertical
-      view.alignment = .center
+    static func stackView(_ views: UIStackView...) {
+      for view in views {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.spacing = 16
+        view.distribution = .equalSpacing
+        view.axis = .vertical
+        view.alignment = .center
+      }
     }
     
     static func buttonsStackView(_ view: UIStackView) {
