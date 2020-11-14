@@ -621,7 +621,8 @@
 			children = (
 				A52372DF255EF8470005D3F4 /* Array.swift */,
 			);
-			path = Extensions;
+			name = Extensions;
+			path = Source/Extensions;
 			sourceTree = "<group>";
 		};
 		A5B4C138255D26AB007F8DB3 /* Appearance */ = {

@@ -134,7 +134,6 @@ internal final class ABTOnboardingPageViewController: UIViewController {
      descriptionLabel.rightAnchor.constraint(equalTo: pageStackView.rightAnchor, constant: -30)].activate()
     
     pageStackView.setCustomSpacing(40, after: animationView)
-    pageStackView.setCustomSpacing(30, after: descriptionLabel)
   }
   
   // MARK: - User Actions
