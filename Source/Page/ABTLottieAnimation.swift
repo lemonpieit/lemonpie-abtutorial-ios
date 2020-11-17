@@ -31,12 +31,23 @@ public class ABTLottieAnimation {
   /// Defaults to `.scaleAspectFit`.
   public var contentMode: UIView.ContentMode = .scaleAspectFit
   
-  // MARK: - Inits
   
+  /// Loads an animation from a specific filepath. Returns nil if an animation is not found.
+  ///
+  /// - Parameters:
+  ///   - filepath: The absolute filepath of the animation to load. Eg. “/User/Me/starAnimation.json”
+  ///   - animationCache: A cache for holding loaded animations. Optional.
   public init(filepath: String, animationCache: AnimationCacheProvider? = nil) {
     self.animation = Animation.filepath(filepath, animationCache: animationCache)
   }
   
+  /// Loads an animation model from a bundle by its name. Returns nil if an animation is not found.
+  ///
+  /// - Parameters:
+  ///   - name: The name of the json file without the json extension.
+  ///   - bundle: The bundle in which the animation is located. Defaults to Bundle.main.
+  ///   - subdirectory: A subdirectory in the bundle in which the animation is located. Optional.
+  ///   - animationCache: A cache for holding loaded animations. Optional.
   public init(name: String, bundle: Bundle = .main, subdirectory: String? = nil, animationCache: AnimationCacheProvider? = nil) {
     self.animation = Animation.named(name, bundle: bundle, subdirectory: subdirectory, animationCache: animationCache)
   }

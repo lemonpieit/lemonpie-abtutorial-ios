@@ -51,6 +51,7 @@ public struct ABTPageAppearance {
   /// - note: Defualts to nil.
   internal let actionButtonAppearance: ABTButtonAppearance
   
+  /// Defines the appearance of a page.
   public init(titleColor: UIColor? = nil,
               textColor: UIColor = .darkText,
               backgroundColor: UIColor = .white,

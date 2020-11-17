@@ -11,6 +11,7 @@ import UIKit
 /// Defines the appearance of the `actionButton` and `nextButton`.
 public struct ABTButtonAppearance {
   
+  /// Specifies a corner radius style.
   public enum CornerStyle {
     case rounded
     case custom(CGFloat)
@@ -46,6 +47,7 @@ public struct ABTButtonAppearance {
   /// - note: If not specified, defualts to no padding.
   internal let padding: UIEdgeInsets
 
+  /// Defines the appearance of a button inside a page.
   public init(titleColor: UIColor = .black,
               backgroundColor: UIColor = .clear,
               cornerRadius: CornerStyle = .custom(0),

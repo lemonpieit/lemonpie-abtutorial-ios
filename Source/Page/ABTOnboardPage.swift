@@ -38,6 +38,7 @@ public struct ABTOnboardPage {
   /// - note: calling the completion with a `true` value on the action will advance the onboarding to the next page.
   let action: OnboardPageAction?
 
+  /// Creates an `ABTOnboardPage` configuration.
   public init(title: String,
               description: String,
               animation: ABTLottieAnimation? = nil,
