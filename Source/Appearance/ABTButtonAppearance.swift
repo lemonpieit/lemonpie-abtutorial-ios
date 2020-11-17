@@ -12,7 +12,7 @@ import UIKit
 public struct ABTButtonAppearance {
   
   /// Specifies a corner radius style.
-  public enum CornerStyle {
+  public enum ABTCornerStyle {
     case rounded
     case custom(CGFloat)
   }
@@ -30,7 +30,7 @@ public struct ABTButtonAppearance {
   /// The corner radius used for the button.
   ///
   /// - note: If not specified, defualts to 0.
-  internal let cornerRadius: CornerStyle
+  internal let cornerRadius: ABTCornerStyle
 
   /// The shadow used for the button.
   ///
@@ -50,7 +50,7 @@ public struct ABTButtonAppearance {
   /// Defines the appearance of a button inside a page.
   public init(titleColor: UIColor = .black,
               backgroundColor: UIColor = .clear,
-              cornerRadius: CornerStyle = .custom(0),
+              cornerRadius: ABTCornerStyle = .custom(0),
               shadow: ABTShadow? = nil,
               font: UIFont = .preferredFont(forTextStyle: .body),
               padding: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)) {
