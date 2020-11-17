@@ -37,8 +37,8 @@ internal final class ABTOnboardingPageViewController: UIViewController {
   private let descriptionLabel = UILabel()
   private let paddingView = UIView()
   private let animationView = AnimationView()
-  private let actionButton = UIButton(type: .system)
-  private let nextButton = UIButton(type: .system)
+  private let actionButton = Button(type: .system)
+  private let nextButton = Button(type: .system)
   
   // MARK: - Properties
   
@@ -56,7 +56,7 @@ internal final class ABTOnboardingPageViewController: UIViewController {
   init(pageIndex: Int, pageAppearance: ABTPageAppearance) {
     self.pageIndex = pageIndex
     self.pageAppearance = pageAppearance
-    
+
     super.init(nibName: nil, bundle: nil)
     customizeStyleWith(pageAppearance)
   }
@@ -95,8 +95,8 @@ internal final class ABTOnboardingPageViewController: UIViewController {
     Style.titleLabel(titleLabel)
     Style.descriptionLabel(descriptionLabel)
     Style.animationView(animationView)
-    Style.actionButton(actionButton)
-    Style.nextButton(nextButton)
+    Style.button(actionButton, action: actionTapped)
+    Style.button(nextButton, action: nextTapped)
   }
   
   private func customizeStyleWith(_ appearanceConfiguration: ABTPageAppearance) {
@@ -132,17 +132,17 @@ internal final class ABTOnboardingPageViewController: UIViewController {
 
     [descriptionLabel.leftAnchor.constraint(equalTo: pageStackView.leftAnchor, constant: 30),
      descriptionLabel.rightAnchor.constraint(equalTo: pageStackView.rightAnchor, constant: -30)].activate()
-    
+
     pageStackView.setCustomSpacing(40, after: animationView)
   }
   
   // MARK: - User Actions
   
-  @objc fileprivate func actionTapped() {
+  private func actionTapped() {
     delegate?.pageViewController(self, actionButtonTappedAt: pageIndex)
   }
   
-  @objc fileprivate func nextTapped() {
+  private func nextTapped() {
     delegate?.pageViewController(self, nextButtonTappedAt: pageIndex)
   }
 }
@@ -186,16 +186,9 @@ private extension ABTOnboardingPageViewController {
       view.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    static func actionButton(_ view: UIButton) {
+    static func button(_ view: Button, action: @escaping () -> Void) {
+      view.perform(action)
       view.translatesAutoresizingMaskIntoConstraints = false
-      view.titleLabel?.font = .preferredFont(forTextStyle: .title2)
-      view.addTarget(self, action: #selector(actionTapped), for: .touchUpInside)
-    }
-    
-    static func nextButton(_ view: UIButton) {
-      view.translatesAutoresizingMaskIntoConstraints = false
-      view.titleLabel?.font = .preferredFont(forTextStyle: .title2)
-      view.addTarget(self, action: #selector(nextTapped), for: .touchUpInside)
     }
   }
 }
@@ -212,12 +205,12 @@ private extension ABTOnboardingPageViewController {
     
     static func animationView(_ animationView: AnimationView, with animation: ABTLottieAnimation?, in superview: UIStackView) {
       if let animation = animation {
-        animationView.heightAnchor.constraint(equalTo: superview.heightAnchor, multiplier: 0.4).isActive = true
+        [animationView.heightAnchor.constraint(equalTo: superview.heightAnchor, multiplier: 0.4)].activate()
         
-        animationView.animation = animation.animation
-        animationView.contentMode = animation.contentMode
-        animationView.animationSpeed = animation.speed
         animationView.loopMode = animation.loopMode
+        animationView.animation = animation.animation
+        animationView.animationSpeed = animation.speed
+        animationView.contentMode = animation.contentMode
         animationView.backgroundBehavior = animation.backgroundBehavior
         
         animationView.play()
@@ -226,11 +219,11 @@ private extension ABTOnboardingPageViewController {
       }
     }
     
-    static func button(_ button: UIButton, with style: ABTButtonAppearance) {
-      button.setTitleColor(style.titleColor, for: .normal)
-      button.titleLabel?.font = style.font
-      button.backgroundColor = style.backgroundColor
+    static func button(_ button: Button, with style: ABTButtonAppearance) {
+      button.titleFont = style.font
       button.contentEdgeInsets = style.padding
+      button.backgroundColor = style.backgroundColor
+      button.setTitleColor(style.titleColor, for: .normal)
       
       button.sizeToFit()
       
