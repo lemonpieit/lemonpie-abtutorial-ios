@@ -9,16 +9,10 @@
 Pod::Spec.new do |s|
   s.name             = 'ABtutorial'
   s.version          = '0.1.0'
-  s.summary          = 'A customizable tutorial onboarding.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.summary          = 'Onboarding personalizzabile per mostrare tutorial.'
 
   s.description      = <<-DESC
-    'A customizable tutorial onboarding with Lottie animations.'
+    'La libreria ABtutorial permette la visualizzazione di mini-tutorial che spiegano specifiche funzionalità sulle app del gruppo ABenergie.'
                        DESC
                        
   s.homepage         = 'https://abenergie.visualstudio.com/ABtutorial.ios'
@@ -33,10 +27,4 @@ Pod::Spec.new do |s|
   s.platform = :ios, '11.0'
   
   s.dependency 'lottie-ios', '~> 3.1.9'
-  
-  # s.resource_bundles = {
-  #   'ABtutorial' => ['ABtutorial/Assets/*.png']
-  # }
-
-  # s.frameworks = 'UIKit', 'MapKit'
 end
