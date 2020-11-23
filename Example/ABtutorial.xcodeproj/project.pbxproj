@@ -17,6 +17,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		66BB28C39112D011C268B22A /* Pods_ABtutorial_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C993E841C1E3B6D556B01A /* Pods_ABtutorial_Example.framework */; };
+		A5135DC32569138E00A7F0D2 /* step_03_data.json in Resources */ = {isa = PBXBuildFile; fileRef = A5135DC22569138D00A7F0D2 /* step_03_data.json */; };
+		A5135DC72569139400A7F0D2 /* step_04_data.json in Resources */ = {isa = PBXBuildFile; fileRef = A5135DC62569139400A7F0D2 /* step_04_data.json */; };
 		A5B4C143255D285D007F8DB3 /* servishero-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A5B4C142255D285D007F8DB3 /* servishero-loading.json */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		79C993E841C1E3B6D556B01A /* Pods_ABtutorial_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ABtutorial_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9692BD5FB8B31C188A1F22A3 /* Pods_ABtutorial_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ABtutorial_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5135DC22569138D00A7F0D2 /* step_03_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = step_03_data.json; sourceTree = "<group>"; };
+		A5135DC62569139400A7F0D2 /* step_04_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = step_04_data.json; sourceTree = "<group>"; };
 		A5B4C142255D285D007F8DB3 /* servishero-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "servishero-loading.json"; path = "Animations/servishero-loading.json"; sourceTree = "<group>"; };
 		D0FF4A698450A09EF141B2A6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		DA19173AA27E71BCBF66E982 /* ABtutorial.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ABtutorial.podspec; path = ../ABtutorial.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -127,6 +131,8 @@
 			children = (
 				5A185CE6255EE55E00D5FC94 /* step_01_data.json */,
 				5A185CEA255EE56700D5FC94 /* step_02_data.json */,
+				A5135DC22569138D00A7F0D2 /* step_03_data.json */,
+				A5135DC62569139400A7F0D2 /* step_04_data.json */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -265,10 +271,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5B4C143255D285D007F8DB3 /* servishero-loading.json in Resources */,
+				A5135DC72569139400A7F0D2 /* step_04_data.json in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				5A185CEB255EE56700D5FC94 /* step_02_data.json in Resources */,
 				5A185CE7255EE55E00D5FC94 /* step_01_data.json in Resources */,
+				A5135DC32569138E00A7F0D2 /* step_03_data.json in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

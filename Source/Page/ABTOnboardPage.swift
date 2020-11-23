@@ -26,7 +26,7 @@ public struct ABTOnboardPage {
   let animation: ABTLottieAnimation?
 
   /// The title text to be used for the primary button that is used to go to the next page.
-  let nextButtonTitle: String
+  let nextButtonTitle: String?
 
   /// The title text to be used for the optional action button on the page.
   ///
@@ -42,7 +42,7 @@ public struct ABTOnboardPage {
   public init(title: String,
               description: String,
               animation: ABTLottieAnimation? = nil,
-              nextButtonTitle: String = NSLocalizedString("onboarding_next_button", value: "Next", comment: ""),
+              nextButtonTitle: String? = nil,
               actionButtonTitle: String? = nil,
               action: OnboardPageAction? = nil) {
     self.title = title

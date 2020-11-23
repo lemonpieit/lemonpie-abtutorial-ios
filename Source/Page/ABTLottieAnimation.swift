@@ -38,7 +38,12 @@ public class ABTLottieAnimation {
   ///   - filepath: The absolute filepath of the animation to load. Eg. “/User/Me/starAnimation.json”
   ///   - animationCache: A cache for holding loaded animations. Optional.
   public init(filepath: String, animationCache: AnimationCacheProvider? = nil) {
-    self.animation = Animation.filepath(filepath, animationCache: animationCache)
+    guard let animation = Animation.filepath(filepath, animationCache: animationCache) else {
+      Logger.error(.animationNotFoundAtPath(filepath))
+      return
+    }
+    
+    self.animation = animation
   }
   
   /// Loads an animation model from a bundle by its name. Returns nil if an animation is not found.
@@ -49,6 +54,11 @@ public class ABTLottieAnimation {
   ///   - subdirectory: A subdirectory in the bundle in which the animation is located. Optional.
   ///   - animationCache: A cache for holding loaded animations. Optional.
   public init(name: String, bundle: Bundle = .main, subdirectory: String? = nil, animationCache: AnimationCacheProvider? = nil) {
-    self.animation = Animation.named(name, bundle: bundle, subdirectory: subdirectory, animationCache: animationCache)
+    guard let animation = Animation.named(name, bundle: bundle, subdirectory: subdirectory, animationCache: animationCache) else {
+      Logger.error(.animationNotFoundWithName(name, bundle))
+      return
+    }
+    
+    self.animation = animation
   }
 }

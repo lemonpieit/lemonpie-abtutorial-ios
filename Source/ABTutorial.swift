@@ -30,7 +30,7 @@ public final class ABTutorial: UIViewController {
     self.pageItems = pageItems
     self.pageAppearance = pageAppearance
     self.completion = completion
-    
+
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -75,9 +75,15 @@ public final class ABTutorial: UIViewController {
   private func pageViwControllerFor(pageIndex: Int) -> ABTOnboardingPageViewController? {
     let pageVC = ABTOnboardingPageViewController(pageIndex: pageIndex, pageAppearance: pageAppearance)
     
-    guard
-      pageIndex >= 0,
-      pageIndex < pageItems.count else { return nil }
+    guard pageIndex >= 0  else {
+      Logger.error("The page index is less than 0")
+      return nil
+    }
+    
+    guard pageIndex < pageItems.count else {
+      Logger.error("Last page reached or the page index is out of pageItems bounds.")
+      return nil
+    }
     
     pageVC.delegate = self
     pageVC.configureWithPage(pageItems[pageIndex])
@@ -86,7 +92,10 @@ public final class ABTutorial: UIViewController {
   
   private func advanceToPageWithIndex(_ pageIndex: Int) {
     DispatchQueue.main.async { [weak self] in
-      guard let nextPage = self?.pageViwControllerFor(pageIndex: pageIndex) else { return }
+      guard let nextPage = self?.pageViwControllerFor(pageIndex: pageIndex) else {
+        Logger.error(.cannotAdvanceToPage(pageIndex))
+        return
+      }
       
       self?.pageViewController.setViewControllers([nextPage], direction: .forward, animated: true)
     }
@@ -96,19 +105,28 @@ public final class ABTutorial: UIViewController {
 extension ABTutorial: UIPageViewControllerDataSource {
   public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
     
-    guard let pageVC = viewController as? ABTOnboardingPageViewController else { return nil }
+    guard let pageVC = viewController as? ABTOnboardingPageViewController else {
+      Logger.error("ViewController is not of type ABTOnboardingPageViewController")
+      return nil
+    }
+    
     let pageIndex = pageVC.pageIndex
     guard pageIndex != 0 else { return nil }
     
-    return pageViwControllerFor(pageIndex: pageIndex - 1)
+    let previousPage = pageViwControllerFor(pageIndex: pageIndex - 1)
+    return previousPage
   }
   
   public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
     
-    guard let pageVC = viewController as? ABTOnboardingPageViewController else { return nil }
+    guard let pageVC = viewController as? ABTOnboardingPageViewController else {
+      Logger.error("ViewController is not of type ABTOnboardingPageViewController")
+      return nil
+    }
+
     let pageIndex = pageVC.pageIndex
-    
-    return pageViwControllerFor(pageIndex: pageIndex + 1)
+    let nextPage = pageViwControllerFor(pageIndex: pageIndex + 1)
+    return nextPage
   }
   
   // MARK: - Page indicator

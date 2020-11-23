@@ -215,6 +215,7 @@ private extension ABTOnboardingPageViewController {
         
         animationView.play()
       } else {
+        Logger.warning(.missingMedia)
         animationView.isHidden = true
       }
     }
@@ -247,8 +248,13 @@ private extension ABTOnboardingPageViewController {
       }
     }
     
-    static func nextButton(_ button: UIButton, with title: String) {
-      button.setTitle(title, for: .normal)
+    static func nextButton(_ button: UIButton, with title: String?) {
+      if let title = title {
+        button.setTitle(title, for: .normal)
+      } else {
+        Logger.warning(.missingNextButtonTitle)
+        button.setTitle(NSLocalizedString("abtutorial_next_button", value: "Next", comment: ""), for: .normal)
+      }
     }
   }
 }
