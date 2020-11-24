@@ -9,8 +9,20 @@
 import Foundation
 import Lottie
 
-public typealias OnboardPageCompletion = (_ showNextPage: Bool, _ error: Error?) -> Void
-public typealias OnboardPageAction = (@escaping OnboardPageCompletion) -> Void
+public typealias ABTOnboardPageCompletion = (_ action: ABTActionType, _ error: Error?) -> Void
+public typealias ABTOnboardPageAction = (@escaping ABTOnboardPageCompletion) -> Void
+
+public enum ABTActionType {
+  case nextPage
+  case lastPage
+  case dismiss
+  case none
+}
+
+public enum ABTMediaType {
+  case image(UIImage?)
+  case animation(ABTLottieAnimation)
+}
 
 public struct ABTOnboardPage {
   
@@ -19,6 +31,11 @@ public struct ABTOnboardPage {
 
   /// A description text to be used underneath the title.
   let description: String
+
+  /// An optional image to be used in the tutorial page.
+  ///
+  /// - note: If no image is used, the description label will adjust fill the empty space.
+  let image: UIImage?
 
   /// An optional animation to be used in the tutorial page.
   ///
@@ -36,20 +53,33 @@ public struct ABTOnboardPage {
   /// The action to be called when tapping the action button on the page.
   ///
   /// - note: calling the completion with a `true` value on the action will advance the onboarding to the next page.
-  let action: OnboardPageAction?
+  let action: ABTOnboardPageAction?
 
   /// Creates an `ABTOnboardPage` configuration.
   public init(title: String,
               description: String,
-              animation: ABTLottieAnimation? = nil,
+              media: ABTMediaType? = nil,
               nextButtonTitle: String? = nil,
               actionButtonTitle: String? = nil,
-              action: OnboardPageAction? = nil) {
+              action: ABTOnboardPageAction? = nil) {
     self.title = title
     self.description = description
-    self.animation = animation
     self.nextButtonTitle = nextButtonTitle
     self.actionButtonTitle = actionButtonTitle
     self.action = action
+    
+    switch media {
+    case .image(let image):
+      self.image = image
+      self.animation = nil
+      
+    case .animation(let animation):
+      self.image = nil
+      self.animation = animation
+      
+    default:
+      self.image = nil
+      self.animation = nil
+    }
   }
 }

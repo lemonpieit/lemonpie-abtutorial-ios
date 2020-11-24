@@ -32,6 +32,29 @@ open class Button: UIButton {
     addTarget(self, action: #selector(actionToPerform), for: event)
   }
 
+  /// Configures the button with an `ABTButtonAppearance`.
+  public func configure(with style: ABTButtonAppearance, action: @escaping () -> Void) {
+    self.perform(action)
+    self.titleFont = style.font
+    self.contentEdgeInsets = style.padding
+    self.backgroundColor = style.backgroundColor
+    self.setTitleColor(style.titleColor, for: .normal)
+    self.translatesAutoresizingMaskIntoConstraints = false
+    
+    self.sizeToFit()
+    
+    switch style.cornerRadius {
+    case .rounded:
+      self.layer.cornerRadius = self.frame.height / 2
+    case .custom(let radius):
+      self.layer.cornerRadius = radius
+    }
+    
+    if let shadow = style.shadow {
+      shadow.apply(to: self)
+    }
+  }
+
   // MARK: - Helpers
   
   @objc private func actionToPerform() {

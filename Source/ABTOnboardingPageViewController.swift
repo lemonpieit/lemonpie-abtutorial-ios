@@ -9,54 +9,32 @@
 import UIKit
 import Lottie
 
-internal protocol ABTOnboardingPageViewControllerDelegate: class {
-  
-  /// Informs the `delegate` that the action button was tapped.
-  ///
-  /// - Parameters:
-  ///   - pageVC: The `ABTOnboardingPageViewController` object.
-  ///   - index: The page index.
-  func pageViewController(_ pageVC: ABTOnboardingPageViewController, actionButtonTappedAt index: Int)
-  
-  /// Informs the `delegate` that the next button was tapped.
-  ///
-  /// - Parameters:
-  ///   - pageVC: The `ABTOnboardingPage` object.
-  ///   - index: The page index.
-  func pageViewController(_ pageVC: ABTOnboardingPageViewController, nextButtonTappedAt index: Int)
-}
-
 internal final class ABTOnboardingPageViewController: UIViewController {
   
   // MARK: - Page elements
   
   private let pageStackView = UIStackView()
   private let textStackView = UIStackView()
-  private let buttonsStackView = UIStackView()
   private let titleLabel = UILabel()
   private let descriptionLabel = UILabel()
   private let paddingView = UIView()
-  private let animationView = AnimationView()
-  private let actionButton = Button(type: .system)
-  private let nextButton = Button(type: .system)
+  
+  private var imageView: UIImageView?
+  private var animationView: AnimationView?
   
   // MARK: - Properties
   
-  private let pageAppearance: ABTPageAppearance
+  private let page: ABTOnboardPage
   
   /// The index of the page.
   let pageIndex: Int
   
-  // MARK: - ABTOnboardingPageViewController Delegate
-  
-  weak var delegate: ABTOnboardingPageViewControllerDelegate?
-  
   // MARK: - Inits
   
-  init(pageIndex: Int, pageAppearance: ABTPageAppearance) {
+  init(pageIndex: Int, page: ABTOnboardPage, pageAppearance: ABTPageAppearance) {
     self.pageIndex = pageIndex
-    self.pageAppearance = pageAppearance
-
+    self.page = page
+    
     super.init(nibName: nil, bundle: nil)
     customizeStyleWith(pageAppearance)
   }
@@ -69,35 +47,12 @@ internal final class ABTOnboardingPageViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    configureWithPage()
     configureUI()
     configureViews()
   }
   
   // MARK: - Configurations
-  
-  /// Configures the `ABTOnboardingPageViewController` with an `ABTOnboardPage` object.
-  ///
-  /// - Parameters:
-  ///   - page: The page properties to assign to the page.
-  func configureWithPage(_ page: ABTOnboardPage) {
-    Config.titleLabel(titleLabel, with: page.title)
-    Config.descriptionLabel(descriptionLabel, with: page.description, in: pageStackView)
-    Config.animationView(animationView, with: page.animation, in: pageStackView)
-    Config.actionButton(actionButton, with: page.actionButtonTitle)
-    Config.button(actionButton, with: pageAppearance.actionButtonAppearance)
-    Config.nextButton(nextButton, with: page.nextButtonTitle)
-    Config.button(nextButton, with: pageAppearance.nextButtonAppearance)
-  }
-  
-  private func configureUI() {
-    Style.stackView(pageStackView, textStackView)
-    Style.buttonsStackView(buttonsStackView)
-    Style.titleLabel(titleLabel)
-    Style.descriptionLabel(descriptionLabel)
-    Style.animationView(animationView)
-    Style.button(actionButton, action: actionTapped)
-    Style.button(nextButton, action: nextTapped)
-  }
   
   private func customizeStyleWith(_ appearanceConfiguration: ABTPageAppearance) {
     view.backgroundColor = appearanceConfiguration.backgroundColor
@@ -109,41 +64,50 @@ internal final class ABTOnboardingPageViewController: UIViewController {
     descriptionLabel.font = appearanceConfiguration.textFont
   }
   
+  /// Configures the `ABTOnboardingPageViewController` with an `ABTOnboardPage` object.
+  private func configureWithPage() {
+    Config.titleLabel(titleLabel, with: page.title)
+    Config.descriptionLabel(descriptionLabel, with: page.description, in: pageStackView)
+    
+    if let image = page.image {
+      imageView = UIImageView()
+      pageStackView.addArrangedSubview(imageView!)
+      Config.imageView(imageView!, with: image, in: pageStackView)
+    }
+    
+    if let animation = page.animation {
+      animationView = AnimationView()
+      pageStackView.addArrangedSubview(animationView!)
+      Config.animationView(animationView!, with: animation, in: pageStackView)
+    }
+  }
+  
+  private func configureUI() {
+    Style.stackView(pageStackView, textStackView)
+    Style.titleLabel(titleLabel)
+    Style.descriptionLabel(descriptionLabel)
+    Style.media(imageView ?? animationView)
+  }
+  
   private func configureViews() {
     view.addSubview(pageStackView)
-    view.addSubview(actionButton)
-        
-    [pageStackView.topAnchor.constraint(equalTo: actionButton.bottomAnchor, constant: 16),
-     pageStackView.leftAnchor.constraint(equalTo: view.leftAnchor),
-     pageStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
-     pageStackView.rightAnchor.constraint(equalTo: view.rightAnchor)].activate()
     
-    [actionButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-     actionButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)].activate()
+    [pageStackView.topAnchor.constraint(equalTo: view.topAnchor),
+     pageStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+     pageStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+     pageStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor)].activate()
     
     [titleLabel, descriptionLabel].addTo(textStackView)
-    [animationView, textStackView, buttonsStackView]
-      .addTo(pageStackView)
-    [nextButton]
-      .addTo(buttonsStackView)
+    [textStackView, paddingView].addTo(pageStackView)
     
-    [animationView.leftAnchor.constraint(equalTo: pageStackView.leftAnchor),
-     animationView.rightAnchor.constraint(equalTo: pageStackView.rightAnchor)].activate()
-
-    [descriptionLabel.leftAnchor.constraint(equalTo: pageStackView.leftAnchor, constant: 30),
-     descriptionLabel.rightAnchor.constraint(equalTo: pageStackView.rightAnchor, constant: -30)].activate()
-
-    pageStackView.setCustomSpacing(40, after: animationView)
-  }
-  
-  // MARK: - User Actions
-  
-  private func actionTapped() {
-    delegate?.pageViewController(self, actionButtonTappedAt: pageIndex)
-  }
-  
-  private func nextTapped() {
-    delegate?.pageViewController(self, nextButtonTappedAt: pageIndex)
+    if let media = imageView ?? animationView {
+      [media.leadingAnchor.constraint(equalTo: pageStackView.leadingAnchor),
+       media.trailingAnchor.constraint(equalTo: pageStackView.trailingAnchor)].activate()
+      pageStackView.setCustomSpacing(40, after: media)
+    }
+    
+    [descriptionLabel.leadingAnchor.constraint(equalTo: pageStackView.leadingAnchor, constant: 30),
+     descriptionLabel.trailingAnchor.constraint(equalTo: pageStackView.trailingAnchor, constant: -30)].activate()
   }
 }
 
@@ -151,44 +115,34 @@ private extension ABTOnboardingPageViewController {
   enum Style {
     static func stackView(_ views: UIStackView...) {
       for view in views {
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.spacing = 16
-        view.distribution = .equalSpacing
         view.axis = .vertical
         view.alignment = .center
+        view.distribution = .equalSpacing
+        view.translatesAutoresizingMaskIntoConstraints = false
       }
     }
     
-    static func buttonsStackView(_ view: UIStackView) {
-      view.axis = .horizontal
-      view.spacing = 50
-    }
-    
     static func titleLabel(_ view: UILabel) {
-      view.translatesAutoresizingMaskIntoConstraints = false
-      view.font = .preferredFont(forTextStyle: .title1)
       view.numberOfLines = 2
-      view.adjustsFontSizeToFitWidth = true
-      view.minimumScaleFactor = 0.7
       view.textAlignment = .center
+      view.minimumScaleFactor = 0.7
+      view.adjustsFontSizeToFitWidth = true
+      view.font = .preferredFont(forTextStyle: .title1)
+      view.translatesAutoresizingMaskIntoConstraints = false
     }
     
     static func descriptionLabel(_ view: UILabel) {
-      view.translatesAutoresizingMaskIntoConstraints = false
-      view.font = .preferredFont(forTextStyle: .title3)
-      view.numberOfLines = 7
-      view.adjustsFontSizeToFitWidth = true
-      view.minimumScaleFactor = 0.7
+      view.numberOfLines = 10
       view.textAlignment = .center
-    }
-    
-    static func animationView(_ view: AnimationView) {
+      view.minimumScaleFactor = 0.7
+      view.adjustsFontSizeToFitWidth = true
+      view.font = .preferredFont(forTextStyle: .title3)
       view.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    static func button(_ view: Button, action: @escaping () -> Void) {
-      view.perform(action)
-      view.translatesAutoresizingMaskIntoConstraints = false
+    static func media(_ view: UIView?) {
+      view?.translatesAutoresizingMaskIntoConstraints = false
     }
   }
 }
@@ -203,9 +157,18 @@ private extension ABTOnboardingPageViewController {
       label.text = description
     }
     
+    static func imageView(_ imageView: UIImageView, with image: UIImage?, in superview: UIStackView) {
+      if let image = image {
+        [imageView.heightAnchor.constraint(equalTo: superview.heightAnchor, multiplier: 0.45)].activate()
+        
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+      }
+    }
+    
     static func animationView(_ animationView: AnimationView, with animation: ABTLottieAnimation?, in superview: UIStackView) {
       if let animation = animation {
-        [animationView.heightAnchor.constraint(equalTo: superview.heightAnchor, multiplier: 0.4)].activate()
+        [animationView.heightAnchor.constraint(equalTo: superview.heightAnchor, multiplier: 0.45)].activate()
         
         animationView.loopMode = animation.loopMode
         animationView.animation = animation.animation
@@ -217,43 +180,6 @@ private extension ABTOnboardingPageViewController {
       } else {
         Logger.warning(.missingMedia)
         animationView.isHidden = true
-      }
-    }
-    
-    static func button(_ button: Button, with style: ABTButtonAppearance) {
-      button.titleFont = style.font
-      button.contentEdgeInsets = style.padding
-      button.backgroundColor = style.backgroundColor
-      button.setTitleColor(style.titleColor, for: .normal)
-      
-      button.sizeToFit()
-      
-      switch style.cornerRadius {
-      case .rounded:
-        button.layer.cornerRadius = button.frame.height / 2
-      case .custom(let radius):
-        button.layer.cornerRadius = radius
-      }
-      
-      if let shadow = style.shadow {
-        shadow.apply(to: button)
-      }
-    }
-    
-    static func actionButton(_ button: UIButton, with title: String?) {
-      if let actionTitle = title {
-        button.setTitle(actionTitle, for: .normal)
-      } else {
-        button.isHidden = true
-      }
-    }
-    
-    static func nextButton(_ button: UIButton, with title: String?) {
-      if let title = title {
-        button.setTitle(title, for: .normal)
-      } else {
-        Logger.warning(.missingNextButtonTitle)
-        button.setTitle(NSLocalizedString("abtutorial_next_button", value: "Next", comment: ""), for: .normal)
       }
     }
   }
