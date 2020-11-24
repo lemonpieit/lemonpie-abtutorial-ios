@@ -13,15 +13,16 @@ internal final class ABTOnboardingPageViewController: UIViewController {
   
   // MARK: - Page elements
   
-  private let pageStackView = UIStackView()
-  private let textStackView = UIStackView()
+  private var imageView: UIImageView?
+  private var animationView: AnimationView?
+
   private let titleLabel = UILabel()
   private let descriptionLabel = UILabel()
   private let paddingView = UIView()
-  
-  private var imageView: UIImageView?
-  private var animationView: AnimationView?
-  
+    
+  private let pageStackView = UIStackView()
+  private let textStackView = UIStackView()
+
   // MARK: - Properties
   
   private let page: ABTOnboardPage
@@ -91,14 +92,13 @@ internal final class ABTOnboardingPageViewController: UIViewController {
   
   private func configureViews() {
     view.addSubview(pageStackView)
-    
+    [titleLabel, descriptionLabel].addTo(textStackView)
+    [textStackView, paddingView].addTo(pageStackView)
+
     [pageStackView.topAnchor.constraint(equalTo: view.topAnchor),
      pageStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
      pageStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
      pageStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor)].activate()
-    
-    [titleLabel, descriptionLabel].addTo(textStackView)
-    [textStackView, paddingView].addTo(pageStackView)
     
     if let media = imageView ?? animationView {
       [media.leadingAnchor.constraint(equalTo: pageStackView.leadingAnchor),

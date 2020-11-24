@@ -44,9 +44,11 @@ class ViewController: UIViewController {
     let pageAppearance = ABTPageAppearance(tintColor: .black,
                                            titleFont: .systemFont(ofSize: 25, weight: .semibold),
                                            textFont: .systemFont(ofSize: 18, weight: .regular),
-                                           nextButtonAppearance: button)
+                                           actionButtonAppearance: button)
+    
     let page = ABTOnboardPage(title: "Codice cliente",
                               description: "Puoi trovare il tuo codice cliente nell'angolo in alto a destra della prima pagina della bolletta ABenergie.",
+                              media: .animation(customerCodeStep1),
                               nextButtonTitle: "Puoi trovare il tuo codice",
                               actionButtonTitle: "Action",
                               action: { completion in

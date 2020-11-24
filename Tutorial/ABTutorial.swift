@@ -70,7 +70,7 @@ public final class ABTutorial: UIViewController {
     configureButtons(forPage: 0)
 
     [actionButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-     actionButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)].activate()
+     actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)].activate()
     
     [nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
      nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)].activate()
@@ -91,7 +91,7 @@ public final class ABTutorial: UIViewController {
     view.addSubview(pageViewController.view)
     pageViewController.didMove(toParent: self)
     
-    [pageViewController.view.topAnchor.constraint(equalTo: actionButton.bottomAnchor, constant: 10),
+    [pageViewController.view.topAnchor.constraint(equalTo: actionButton.bottomAnchor, constant: 20),
      pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
      pageViewController.view.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -20),
      pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)].activate()
@@ -116,16 +116,22 @@ public final class ABTutorial: UIViewController {
     Config.nextButton(nextButton, with: page.nextButtonTitle)
         
     UIView.animate(withDuration: viewModel.animationDuration, delay: 0, options: .curveEaseOut) {
-      self.nextButton.layoutIfNeeded()
-
-      if self.nextButton.frame.width > (self.view.frame.width - 40) {
-        [self.leading, self.trailing].activate()
-      } else {
-        [self.leading, self.trailing].deactivate()
-      }
-      
-      self.nextButton.layoutIfNeeded()
+      self.updateNextButtonConstraints()
     }
+  }
+  
+  private func updateNextButtonConstraints() {
+    nextButton.layoutIfNeeded()
+    
+    if nextButton.frame.width > (view.frame.width - 40) {
+      [leading, trailing].activate()
+    } else {
+      if leading.isActive || trailing.isActive {
+        [leading, trailing].deactivate()
+      }
+    }
+    
+    nextButton.layoutIfNeeded()
   }
   
   // MARK: - User Actions
