@@ -10,7 +10,7 @@ import Foundation
 enum ABTError: Error {
   case animationNotFoundWithName(String, Bundle)
   case animationNotFoundAtPath(String)
-  case imageNotFoundWithName(String)
+  case imageNotFound
   #warning("Guarda se 'fileNotSupported' serve davvero.")
   case fileNotSupported
   case cannotAdvanceToPage(Int)
@@ -21,7 +21,7 @@ extension ABTError: CustomNSError {
     switch self {
     case .animationNotFoundWithName: return 0
     case .animationNotFoundAtPath: return 1
-    case .imageNotFoundWithName: return 2
+    case .imageNotFound: return 2
     case .fileNotSupported: return 3
     case .cannotAdvanceToPage: return 4
     }
@@ -40,8 +40,8 @@ extension ABTError {
     case .animationNotFoundAtPath(let path):
       return "Cannot find animation at path '\(path)'. \(checkPhrase)"
 
-    case .imageNotFoundWithName(let name):
-      return "Cannot find image named '\(name)'. \(checkPhrase)"
+    case .imageNotFound:
+      return "Cannot find the image. \(checkPhrase)"
 
     case .fileNotSupported:
       return "This file is not supported in this version of ABTutorial. Only .json file and images are supported. \(checkPhrase)"

@@ -70,7 +70,12 @@ public struct ABTOnboardPage {
     
     switch media {
     case .image(let image):
-      self.image = image
+      if let image = image {
+        self.image = image
+      } else {
+        self.image = nil
+        Logger.error(.imageNotFound)
+      }
       self.animation = nil
       
     case .animation(let animation):

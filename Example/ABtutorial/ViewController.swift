@@ -47,7 +47,7 @@ class ViewController: UIViewController {
                                            nextButtonAppearance: button)
     let page = ABTOnboardPage(title: "Codice cliente",
                               description: "Puoi trovare il tuo codice cliente nell'angolo in alto a destra della prima pagina della bolletta ABenergie.",
-                              nextButtonTitle: "Puoi trovare il tuo codicell",
+                              nextButtonTitle: "Puoi trovare il tuo codice",
                               actionButtonTitle: "Action",
                               action: { completion in
                                 print("VALERIA MARINI")
