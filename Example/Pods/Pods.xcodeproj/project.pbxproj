@@ -110,7 +110,7 @@
 		A184A7069E713D6FF51DA057650F8428 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03759F2E6C2148B126D29F3A1E25074 /* Star.swift */; };
 		A3F12DFBCB3AC8D4CB42A85F81E9821E /* ShapeLayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710952D41724BB7D28D0EC3BF8776D01 /* ShapeLayerModel.swift */; };
 		A514F32525656E1700B94F40 /* ABTutorialVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514F32425656E1700B94F40 /* ABTutorialVM.swift */; };
-		A52372E0255EF8470005D3F4 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52372DF255EF8470005D3F4 /* Array.swift */; };
+		A52372E0255EF8470005D3F4 /* Array+XT.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52372DF255EF8470005D3F4 /* Array+XT.swift */; };
 		A53E2B932562838600D01316 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2B922562838600D01316 /* Button.swift */; };
 		A59502581CAD5FD01567EAB82A20FC40 /* AnimationKeypath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59499C8FEC9FA83E1427CF6664BEFBAC /* AnimationKeypath.swift */; };
 		A5B4C13B255D26AC007F8DB3 /* ABTPageAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B4C139255D26AB007F8DB3 /* ABTPageAppearance.swift */; };
@@ -320,7 +320,7 @@
 		9FA2EBAA33F3070112B84DCB7B668BE5 /* GroupInterpolator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GroupInterpolator.swift; path = "lottie-swift/src/Private/NodeRenderSystem/NodeProperties/ValueProviders/GroupInterpolator.swift"; sourceTree = "<group>"; };
 		A104A1CCF35AE63847411F8D7E7FBD84 /* Transform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transform.swift; path = "lottie-swift/src/Private/Model/Objects/Transform.swift"; sourceTree = "<group>"; };
 		A514F32425656E1700B94F40 /* ABTutorialVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABTutorialVM.swift; sourceTree = "<group>"; };
-		A52372DF255EF8470005D3F4 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		A52372DF255EF8470005D3F4 /* Array+XT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+XT.swift"; sourceTree = "<group>"; };
 		A53E2B922562838600D01316 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		A5A66DA584518631385A4F8F375C21A8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A5B4C139255D26AB007F8DB3 /* ABTPageAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABTPageAppearance.swift; sourceTree = "<group>"; };
@@ -635,11 +635,11 @@
 			path = Tutorial;
 			sourceTree = "<group>";
 		};
-		A52372DE255EF83A0005D3F4 /* Extensions */ = {
+		A52372DE255EF83A0005D3F4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				A5C77AB7256830BE00BD0344 /* Logger.swift */,
-				A52372DF255EF8470005D3F4 /* Array.swift */,
+				A52372DF255EF8470005D3F4 /* Array+XT.swift */,
 				A53E2B922562838600D01316 /* Button.swift */,
 			);
 			name = Helpers;
@@ -964,7 +964,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A52372E0255EF8470005D3F4 /* Array.swift in Sources */,
+				A52372E0255EF8470005D3F4 /* Array+XT.swift in Sources */,
 				3340063CCB30A16518C7BD101E477EEC /* ABtutorial-dummy.m in Sources */,
 				A5B4C13F255D26B8007F8DB3 /* ABTOnboardPage.swift in Sources */,
 				A514F32525656E1700B94F40 /* ABTutorialVM.swift in Sources */,
@@ -1243,7 +1243,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1532,7 +1532,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

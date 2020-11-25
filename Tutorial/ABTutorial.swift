@@ -4,6 +4,8 @@
 //
 //  Created by Francesco Leoni on 11/11/2020.
 //
+//  v 1.0.1 (2)
+//
 
 import UIKit
 import Lottie
