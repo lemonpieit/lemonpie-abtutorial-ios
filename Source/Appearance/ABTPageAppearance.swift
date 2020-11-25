@@ -51,6 +51,16 @@ public struct ABTPageAppearance {
   /// - note: Defualts to nil.
   internal let actionButtonAppearance: ABTButtonAppearance
   
+  /// The title text to be used for the optional action button on the page.
+  ///
+  /// - note: If no action button title is set, the button will not appear.
+  internal let actionButtonTitle: String?
+
+  /// The action to be called when tapping the action button on the page.
+  ///
+  /// - note: calling the completion with a `true` value on the action will advance the onboarding to the next page.
+  internal let action: ABTOnboardPageAction?
+
   /// Defines the appearance of a page.
   public init(titleColor: UIColor? = nil,
               textColor: UIColor = .darkText,
@@ -59,7 +69,9 @@ public struct ABTPageAppearance {
               titleFont: UIFont = .preferredFont(forTextStyle: .title1),
               textFont: UIFont = .preferredFont(forTextStyle: .body),
               nextButtonAppearance: ABTButtonAppearance = ABTButtonAppearance(),
-              actionButtonAppearance: ABTButtonAppearance = ABTButtonAppearance()) {
+              actionButtonAppearance: ABTButtonAppearance = ABTButtonAppearance(),
+              actionButtonTitle: String? = nil,
+              action: ABTOnboardPageAction? = nil) {
     self.titleColor = titleColor ?? textColor
     self.textColor = textColor
     self.backgroundColor = backgroundColor
@@ -68,5 +80,7 @@ public struct ABTPageAppearance {
     self.textFont = textFont
     self.nextButtonAppearance = nextButtonAppearance
     self.actionButtonAppearance = actionButtonAppearance
+    self.actionButtonTitle = actionButtonTitle
+    self.action = action
   }
 }

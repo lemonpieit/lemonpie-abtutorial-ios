@@ -45,28 +45,14 @@ public struct ABTOnboardPage {
   /// The title text to be used for the primary button that is used to go to the next page.
   let nextButtonTitle: String?
 
-  /// The title text to be used for the optional action button on the page.
-  ///
-  /// - note: If no action button title is set, the button will not appear.
-  let actionButtonTitle: String?
-
-  /// The action to be called when tapping the action button on the page.
-  ///
-  /// - note: calling the completion with a `true` value on the action will advance the onboarding to the next page.
-  let action: ABTOnboardPageAction?
-
   /// Creates an `ABTOnboardPage` configuration.
   public init(title: String,
               description: String,
               media: ABTMediaType? = nil,
-              nextButtonTitle: String? = nil,
-              actionButtonTitle: String? = nil,
-              action: ABTOnboardPageAction? = nil) {
+              nextButtonTitle: String? = nil) {
     self.title = title
     self.description = description
     self.nextButtonTitle = nextButtonTitle
-    self.actionButtonTitle = actionButtonTitle
-    self.action = action
     
     switch media {
     case .image(let image):

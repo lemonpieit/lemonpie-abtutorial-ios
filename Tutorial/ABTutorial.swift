@@ -112,7 +112,7 @@ public final class ABTutorial: UIViewController {
   private func configureButtons(forPage index: Int) {
     let page = viewModel.pageAt(index)
     
-    Config.actionButton(actionButton, with: page.actionButtonTitle, duration: viewModel.animationDuration)
+    Config.actionButton(actionButton, viewModel: viewModel)
     Config.nextButton(nextButton, with: page.nextButtonTitle)
         
     UIView.animate(withDuration: viewModel.animationDuration, delay: 0, options: .curveEaseOut) {
@@ -137,7 +137,7 @@ public final class ABTutorial: UIViewController {
   // MARK: - User Actions
   
   private func actionTapped() {
-    if let pageAction = viewModel.pageAt(viewModel.currentPageIndex).action {
+    if let pageAction = viewModel.pageAppearance.action {
       pageAction { [weak self] (action, error) in
         if let error = error {
           print(error.localizedDescription)
@@ -202,8 +202,8 @@ extension ABTutorial: UIPageViewControllerDelegate {
     if completed {
       let pageIndex = viewModel.indexFor(pageViewController.viewControllers?.first)
       
-      configureButtons(forPage: pageIndex)
       viewModel.setCurrentIndex(to: pageIndex)
+      configureButtons(forPage: pageIndex)
     }
   }
 }

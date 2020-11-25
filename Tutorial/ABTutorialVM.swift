@@ -19,7 +19,7 @@ internal final class ABTutorialViewModel {
   let pageItems: [ABTOnboardPage]
   
   /// The duration of the buttons animation.
-  let animationDuration = 0.25
+  let animationDuration = 0.2
   
   /// The index of the page the user is seeing.
   private(set) var currentPageIndex = 0
@@ -29,11 +29,16 @@ internal final class ABTutorialViewModel {
     pageItems.count - 1
   }
 
-  /// Indicates whether the current page is the last page in `pageItems`
+  /// Indicates whether the current page is the last page in `pageItems`.
   var isLastPage: Bool {
     currentPageIndex == lastIndex
   }
 
+  /// Indicates whether the action button should appear in the current page.
+  var shouldShowActionButton: Bool {
+    pageAppearance.actionButtonTitle != nil && !isLastPage
+  }
+  
   // MARK: - Appearance
   
   let pageAppearance: ABTPageAppearance
@@ -146,16 +151,16 @@ internal final class ABTutorialViewModel {
 
 extension ABTutorial {
   enum Config {
-    static func actionButton(_ button: UIButton, with title: String?, duration: TimeInterval) {
-      if let actionTitle = title {
-        button.setTitle(actionTitle, for: .normal)
+    static func actionButton(_ button: UIButton, viewModel: ABTutorialViewModel) {
+      if viewModel.shouldShowActionButton {
+        button.setTitle(viewModel.pageAppearance.actionButtonTitle, for: .normal)
         button.isHidden = false
         
-        UIView.animate(withDuration: duration) {
+        UIView.animate(withDuration: viewModel.animationDuration) {
           button.alpha = 1
         }
       } else {
-        UIView.animate(withDuration: duration) {
+        UIView.animate(withDuration: viewModel.animationDuration) {
           button.alpha = 0
         } completion: { _ in
           button.isHidden = true

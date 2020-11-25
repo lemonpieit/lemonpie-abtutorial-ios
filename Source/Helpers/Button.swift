@@ -39,6 +39,8 @@ open class Button: UIButton {
     self.contentEdgeInsets = style.padding
     self.backgroundColor = style.backgroundColor
     self.setTitleColor(style.titleColor, for: .normal)
+    self.titleLabel?.minimumScaleFactor = 0.6
+    self.titleLabel?.adjustsFontSizeToFitWidth = true
     self.translatesAutoresizingMaskIntoConstraints = false
     
     self.sizeToFit()
