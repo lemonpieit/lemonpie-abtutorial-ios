@@ -632,7 +632,8 @@
 				D03BBE303F2D6FEB96CAECE22DA100A5 /* ABTutorial.swift */,
 				A514F32425656E1700B94F40 /* ABTutorialVM.swift */,
 			);
-			path = Tutorial;
+			name = Tutorial;
+			path = Source/Tutorial;
 			sourceTree = "<group>";
 		};
 		A52372DE255EF83A0005D3F4 /* Helpers */ = {
@@ -673,7 +674,8 @@
 				A5C77AAD25682E6200BD0344 /* ABTErrors.swift */,
 				A5F2B92C256BB3BE001A6118 /* ABTWarning.swift */,
 			);
-			path = Errors;
+			name = Errors;
+			path = Source/Errors;
 			sourceTree = "<group>";
 		};
 		A7798734CB6B6CC78ADE07F0211B9A74 /* Pods */ = {
