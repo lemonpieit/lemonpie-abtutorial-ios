@@ -26,16 +26,7 @@ open class Button: UIButton {
     super.layoutSubviews()
     gradientLayer?.frame = bounds
   }
-  
-  public override init(frame: CGRect) {
-    super.init(frame: frame)
-    clipsToBounds = true
-  }
-  
-  required public init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
+    
   // MARK: - Public methods
 
   /// Add action to execute on the specified event.
@@ -60,14 +51,7 @@ open class Button: UIButton {
     self.translatesAutoresizingMaskIntoConstraints = false
     
     self.sizeToFit()
-    
-    switch style.cornerRadius {
-    case .rounded:
-      self.layer.cornerRadius = self.frame.height / 2
-    case .custom(let radius):
-      self.layer.cornerRadius = radius
-    }
-    
+        
     if let shadow = style.shadow {
       shadow.apply(to: self)
     }
@@ -75,6 +59,16 @@ open class Button: UIButton {
     if let gradient = style.gradient {
       self.gradientLayer = gradient
       self.layer.insertSublayer(gradient, at: 0)
+    }
+        
+    switch style.cornerRadius {
+    case .rounded:
+      let cornerRadius = self.frame.height / 2
+      self.gradientLayer?.cornerRadius = cornerRadius
+      self.layer.cornerRadius = cornerRadius
+      
+    case .custom(let radius):
+      self.layer.cornerRadius = radius
     }
   }
 
