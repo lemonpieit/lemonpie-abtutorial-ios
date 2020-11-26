@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ABtutorial'
-  s.version          = '1.1.0'
+  s.version          = '1.1.1'
   s.summary          = 'Onboarding personalizzabile per mostrare tutorial.'
 
   s.description      = <<-DESC
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://abenergie.visualstudio.com/ABtutorial.ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Luigi Aiello' => 'luigi.aiello@abenergie.it', 'Francesco Leoni' => 'francesco.leoni@abenergie.it' }
-  s.source           = { :git => 'https://abenergie.visualstudio.com/_git/ABtutorial.ios', :tag => 'v1.1.0' }
+  s.source           = { :git => 'https://abenergie.visualstudio.com/_git/ABtutorial.ios', :tag => 'v1.1.1' }
   s.social_media_url = 'https://github.com/fraleo2406'
   s.social_media_url = 'https://github.com/mo3bius'
                        
