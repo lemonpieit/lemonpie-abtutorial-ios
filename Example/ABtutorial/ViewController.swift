@@ -15,31 +15,25 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     let customerCodeStep1 = ABTLottieAnimation(name: "step_01_data")
-    customerCodeStep1.speed = 0.8
-    customerCodeStep1.loopMode = .loop
-    customerCodeStep1.contentMode = .scaleAspectFit
     
     let customerCodeStep2 = ABTLottieAnimation(name: "step_02_data")
-    customerCodeStep2.speed = 0.8
-    customerCodeStep2.loopMode = .loop
-    customerCodeStep2.contentMode = .scaleAspectFit
     
     let customerCodeStep3 = ABTLottieAnimation(name: "step_04_data")
-    customerCodeStep3.speed = 0.8
-    customerCodeStep3.loopMode = .loop
-    customerCodeStep3.contentMode = .redraw
     
     let customerCodeStep4 = ABTLottieAnimation(name: "step_03_data")
-    customerCodeStep4.speed = 0.8
-    customerCodeStep4.loopMode = .loop
-    customerCodeStep4.contentMode = .redraw
-    
+
+    let gradient = CAGradientLayer()
+    gradient.colors = [UIColor.systemTeal.cgColor, UIColor.systemBlue.cgColor]
+    gradient.startPoint = CGPoint(x: 1, y: 0)
+    gradient.endPoint = CGPoint(x: 0, y: 1)
+
     let button = ABTButtonAppearance(titleColor: .white,
                                      backgroundColor: .systemBlue,
                                      cornerRadius: .rounded,
                                      shadow: ABTShadow(color: .systemBlue, radius: 6, opacity: 0.5, offset: CGSize(width: 0, height: 5)),
                                      font: .systemFont(ofSize: 20, weight: .semibold),
-                                     padding: UIEdgeInsets(top: 15, left: 50, bottom: 15, right: 50))
+                                     padding: UIEdgeInsets(top: 15, left: 50, bottom: 15, right: 50),
+                                     gradient: gradient)
     
     let pageAppearance = ABTPageAppearance(tintColor: .black,
                                            titleFont: .systemFont(ofSize: 25, weight: .semibold),

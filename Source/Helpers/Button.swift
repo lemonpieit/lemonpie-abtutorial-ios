@@ -11,6 +11,8 @@ open class Button: UIButton {
   
   private var action: (() -> Void)?
   
+  private var gradientLayer: CAGradientLayer?
+  
   // MARK: - Public properties
 
   /// The font of the title text.
@@ -19,7 +21,21 @@ open class Button: UIButton {
       titleLabel?.font = titleFont
     }
   }
-    
+  
+  open override func layoutSubviews() {
+    super.layoutSubviews()
+    gradientLayer?.frame = bounds
+  }
+  
+  public override init(frame: CGRect) {
+    super.init(frame: frame)
+    clipsToBounds = true
+  }
+  
+  required public init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   // MARK: - Public methods
 
   /// Add action to execute on the specified event.
@@ -54,6 +70,11 @@ open class Button: UIButton {
     
     if let shadow = style.shadow {
       shadow.apply(to: self)
+    }
+    
+    if let gradient = style.gradient {
+      self.gradientLayer = gradient
+      self.layer.insertSublayer(gradient, at: 0)
     }
   }
 

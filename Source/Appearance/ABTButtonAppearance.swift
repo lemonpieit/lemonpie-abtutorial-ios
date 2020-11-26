@@ -47,18 +47,25 @@ public struct ABTButtonAppearance {
   /// - note: If not specified, defualts to no padding.
   internal let padding: UIEdgeInsets
 
+  /// The gradient layer to use as the button background.
+  ///
+  /// - note: If not specified, defualts to no gradient.
+  internal let gradient: CAGradientLayer?
+
   /// Defines the appearance of a button inside a page.
   public init(titleColor: UIColor = .black,
               backgroundColor: UIColor = .clear,
               cornerRadius: ABTCornerStyle = .custom(0),
               shadow: ABTShadow? = nil,
               font: UIFont = .preferredFont(forTextStyle: .body),
-              padding: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)) {
+              padding: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
+              gradient: CAGradientLayer? = nil) {
     self.titleColor = titleColor
     self.backgroundColor = backgroundColor
     self.cornerRadius = cornerRadius
     self.shadow = shadow
     self.font = font
     self.padding = padding
+    self.gradient = gradient
   }
 }

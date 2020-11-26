@@ -20,8 +20,8 @@ public class ABTLottieAnimation {
   public var speed: CGFloat = 1
   
   /// Sets the loop behavior for play calls.
-  /// Defaults to `.playOnce`.
-  public var loopMode: LottieLoopMode = .playOnce
+  /// Defaults to `.loop`.
+  public var loopMode: LottieLoopMode = .loop
   
   /// Describes the behavior of an AnimationView when the app is moved to the background.
   /// Defaults to `.pauseAndRestore`.

@@ -4,7 +4,7 @@
 //
 //  Created by Francesco Leoni on 11/11/2020.
 //
-//  v 1.0.2 (3)
+//  v 1.1.0 (4)
 //
 
 import UIKit
