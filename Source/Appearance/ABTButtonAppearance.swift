@@ -53,7 +53,7 @@ public struct ABTButtonAppearance {
   internal let gradient: CAGradientLayer?
 
   /// Defines the appearance of a button inside a page.
-  public init(titleColor: UIColor = .black,
+  public init(titleColor: UIColor = Color.black,
               backgroundColor: UIColor = .clear,
               cornerRadius: ABTCornerStyle = .custom(0),
               shadow: ABTShadow? = nil,

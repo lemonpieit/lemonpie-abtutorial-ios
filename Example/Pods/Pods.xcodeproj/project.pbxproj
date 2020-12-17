@@ -110,6 +110,7 @@
 		A184A7069E713D6FF51DA057650F8428 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03759F2E6C2148B126D29F3A1E25074 /* Star.swift */; };
 		A3F12DFBCB3AC8D4CB42A85F81E9821E /* ShapeLayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710952D41724BB7D28D0EC3BF8776D01 /* ShapeLayerModel.swift */; };
 		A514F32525656E1700B94F40 /* ABTutorialVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A514F32425656E1700B94F40 /* ABTutorialVM.swift */; };
+		A522E498258BA1570027225E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A522E497258BA1570027225E /* Colors.xcassets */; };
 		A52372E0255EF8470005D3F4 /* Array+XT.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52372DF255EF8470005D3F4 /* Array+XT.swift */; };
 		A53E2B932562838600D01316 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E2B922562838600D01316 /* Button.swift */; };
 		A59502581CAD5FD01567EAB82A20FC40 /* AnimationKeypath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59499C8FEC9FA83E1427CF6664BEFBAC /* AnimationKeypath.swift */; };
@@ -320,6 +321,7 @@
 		9FA2EBAA33F3070112B84DCB7B668BE5 /* GroupInterpolator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GroupInterpolator.swift; path = "lottie-swift/src/Private/NodeRenderSystem/NodeProperties/ValueProviders/GroupInterpolator.swift"; sourceTree = "<group>"; };
 		A104A1CCF35AE63847411F8D7E7FBD84 /* Transform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transform.swift; path = "lottie-swift/src/Private/Model/Objects/Transform.swift"; sourceTree = "<group>"; };
 		A514F32425656E1700B94F40 /* ABTutorialVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABTutorialVM.swift; sourceTree = "<group>"; };
+		A522E497258BA1570027225E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		A52372DF255EF8470005D3F4 /* Array+XT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+XT.swift"; sourceTree = "<group>"; };
 		A53E2B922562838600D01316 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		A5A66DA584518631385A4F8F375C21A8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -636,6 +638,15 @@
 			path = Source/Tutorial;
 			sourceTree = "<group>";
 		};
+		A522E48E258B99DD0027225E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A522E497258BA1570027225E /* Colors.xcassets */,
+			);
+			name = Assets;
+			path = Source/Assets;
+			sourceTree = "<group>";
+		};
 		A52372DE255EF83A0005D3F4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -735,6 +746,7 @@
 				A5B4C13D255D26B8007F8DB3 /* Page */,
 				A5C77AAC25682E5300BD0344 /* Errors */,
 				A52372DE255EF83A0005D3F4 /* Helpers */,
+				A522E48E258B99DD0027225E /* Assets */,
 				982E05C75523561D99CDBCC2B63616C0 /* Pod */,
 				03C4081A5F5235B382A53A8B3E40D981 /* Support Files */,
 			);
@@ -935,6 +947,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A522E498258BA1570027225E /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1250,12 +1263,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EXCLUDED_ARCHS = "";
 				GCC_PREFIX_HEADER = "Target Support Files/ABtutorial/ABtutorial-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ABtutorial/ABtutorial-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				MODULEMAP_FILE = "Target Support Files/ABtutorial/ABtutorial.modulemap";
 				PRODUCT_MODULE_NAME = ABtutorial;
 				PRODUCT_NAME = ABtutorial;
@@ -1540,12 +1554,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EXCLUDED_ARCHS = "";
 				GCC_PREFIX_HEADER = "Target Support Files/ABtutorial/ABtutorial-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ABtutorial/ABtutorial-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				MODULEMAP_FILE = "Target Support Files/ABtutorial/ABtutorial.modulemap";
 				PRODUCT_MODULE_NAME = ABtutorial;
 				PRODUCT_NAME = ABtutorial;

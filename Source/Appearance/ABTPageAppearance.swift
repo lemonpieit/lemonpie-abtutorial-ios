@@ -60,12 +60,12 @@ public struct ABTPageAppearance {
   ///
   /// - note: calling the completion with a `true` value on the action will advance the onboarding to the next page.
   internal let action: ABTOnboardPageAction?
-
+  
   /// Defines the appearance of a page.
   public init(titleColor: UIColor? = nil,
-              textColor: UIColor = .darkText,
-              backgroundColor: UIColor = .white,
-              tintColor: UIColor = .systemBlue,
+              textColor: UIColor = Color.black,
+              backgroundColor: UIColor = Color.white,
+              tintColor: UIColor = Color.black,
               titleFont: UIFont = .preferredFont(forTextStyle: .title1),
               textFont: UIFont = .preferredFont(forTextStyle: .body),
               nextButtonAppearance: ABTButtonAppearance = ABTButtonAppearance(),
@@ -83,4 +83,20 @@ public struct ABTPageAppearance {
     self.actionButtonTitle = actionButtonTitle
     self.action = action
   }
+}
+
+public class Color {
+  
+  private static var bundle: Bundle {
+    Bundle(for: self)
+  }
+
+  public static var white: UIColor {
+    return UIColor(named: "white", in: bundle, compatibleWith: nil)!
+  }
+  
+  public static var black: UIColor {
+    return UIColor(named: "black", in: bundle, compatibleWith: nil)!
+  }
+
 }

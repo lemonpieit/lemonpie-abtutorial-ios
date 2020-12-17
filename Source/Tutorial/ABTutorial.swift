@@ -4,15 +4,16 @@
 //
 //  Created by Francesco Leoni on 11/11/2020.
 //
-//  v 1.1.1 (4)
+//  v 1.1.2
 //
 
 import UIKit
 import Lottie
 
 public final class ABTutorial: UIViewController {
-  
+    
   deinit {
+    //    completion?()
     print("Done")
   }
   
@@ -21,12 +22,42 @@ public final class ABTutorial: UIViewController {
   private let viewModel: ABTutorialViewModel
   private let completion: (() -> Void)?
   
+  lazy var leading = nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
+  lazy var trailing = nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+    
   // MARK: - Elements
   
   private let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
   private let actionButton = Button(type: .system)
   private let nextButton = Button(type: .system)
   
+  // MARK: - Interface
+  
+  /// A Boolean value indicaing whether the dark mode is enabled.
+  /// The default value is `true` which causes the view controller to inherit the interface style from the system.
+  ///
+  /// - Note: This value is not needed for iOS 12.0 or older.
+  public var isDarkModeEnabled: Bool = true {
+    didSet {
+      if #available(iOS 13.0, *) {
+        if isDarkModeEnabled {
+          overrideUserInterfaceStyle = .unspecified
+        } else {
+          overrideUserInterfaceStyle = .light
+        }
+      }
+    }
+  }
+
+  /// Presents the configured `OnboardViewController`.
+  ///
+  /// - Parameters:
+  ///   - viewController: The presenting view controller.
+  ///   - animated: Defines if the presentation should be animated.
+  public func presentFrom(_ viewController: UIViewController, animated: Bool) {
+    viewController.present(self, animated: animated)
+  }
+
   // MARK: - Inits
   
   /// Initializes a new `ABTutorial` to be presented.
@@ -39,7 +70,7 @@ public final class ABTutorial: UIViewController {
   public required init(pageItems: [ABTOnboardPage], pageAppearance: ABTPageAppearance = ABTPageAppearance(), completion: (() -> Void)? = nil) {
     self.viewModel = ABTutorialViewModel(pageItems: pageItems, appearance: pageAppearance)
     self.completion = completion
-    
+
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -56,21 +87,19 @@ public final class ABTutorial: UIViewController {
     configureUI()
     configurePageViewController()
   }
-  
-  lazy var leading = nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
-  lazy var trailing = nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-
+    
   // MARK: - Configurations
+  
   private func configureUI() {
     view.backgroundColor = viewModel.backgroundColor
     
     [actionButton, nextButton].addTo(view)
-        
+    
     actionButton.configure(with: viewModel.actionAppearance, action: actionTapped)
     nextButton.configure(with: viewModel.nextAppearance, action: nextTapped)
     
     configureButtons(forPage: 0)
-
+    
     [actionButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
      actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)].activate()
     
@@ -98,25 +127,14 @@ public final class ABTutorial: UIViewController {
      pageViewController.view.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -20),
      pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)].activate()
   }
-  
-  // MARK: - Interface
-  
-  /// Presents the configured `OnboardViewController`.
-  ///
-  /// - Parameters:
-  ///   - viewController: The presenting view controller.
-  ///   - animated: Defines if the presentation should be animated.
-  public func presentFrom(_ viewController: UIViewController, animated: Bool) {
-    viewController.present(self, animated: animated)
-  }
-  
+    
   // MARK: - Helpers
   private func configureButtons(forPage index: Int) {
     let page = viewModel.pageAt(index)
     
     Config.actionButton(actionButton, viewModel: viewModel)
     Config.nextButton(nextButton, with: page.nextButtonTitle)
-        
+    
     UIView.animate(withDuration: viewModel.animationDuration, delay: 0, options: .curveEaseOut) {
       self.updateNextButtonConstraints()
     }
@@ -165,7 +183,7 @@ public final class ABTutorial: UIViewController {
   
   private func nextTapped() {
     if viewModel.isLastPage {
-      dismiss(animated: true, completion: completion)
+      dismiss(animated: true, completion: nil)
     } else {
       viewModel.goToNextPage()
     }

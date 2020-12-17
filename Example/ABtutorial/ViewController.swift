@@ -11,6 +11,8 @@ import ABtutorial
 
 class ViewController: UIViewController {
   
+  var tutorial: ABTutorial?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -21,22 +23,13 @@ class ViewController: UIViewController {
     let customerCodeStep3 = ABTLottieAnimation(name: "step_04_data")
     
     let customerCodeStep4 = ABTLottieAnimation(name: "step_03_data")
-
-    let gradient = CAGradientLayer()
-    gradient.colors = [UIColor.systemTeal.cgColor, UIColor.systemBlue.cgColor]
-    gradient.startPoint = CGPoint(x: 1, y: 0)
-    gradient.endPoint = CGPoint(x: 0, y: 1)
-
-    let button = ABTButtonAppearance(titleColor: .white,
-                                     backgroundColor: .systemBlue,
-                                     cornerRadius: .rounded,
+    
+    let button = ABTButtonAppearance(cornerRadius: .rounded,
                                      shadow: ABTShadow(color: .systemBlue, radius: 6, opacity: 0.5, offset: CGSize(width: 0, height: 5)),
                                      font: .systemFont(ofSize: 20, weight: .semibold),
-                                     padding: UIEdgeInsets(top: 15, left: 50, bottom: 15, right: 50),
-                                     gradient: gradient)
+                                     padding: UIEdgeInsets(top: 15, left: 50, bottom: 15, right: 50))
     
-    let pageAppearance = ABTPageAppearance(tintColor: .black,
-                                           titleFont: .systemFont(ofSize: 25, weight: .semibold),
+    let pageAppearance = ABTPageAppearance(titleFont: .systemFont(ofSize: 25, weight: .semibold),
                                            textFont: .systemFont(ofSize: 18, weight: .regular),
                                            nextButtonAppearance: button,
                                            actionButtonTitle: "Yes",
@@ -64,11 +57,12 @@ class ViewController: UIViewController {
                                media: .animation(customerCodeStep4),
                                nextButtonTitle: "Ho capito!")
     
-    let tutorial = ABTutorial(pageItems: [page, page2, page3, page4],
-                              pageAppearance: pageAppearance, completion: {
-                                print("Done")
-                              })
+    tutorial = ABTutorial(pageItems: [page, page2, page3, page4],
+                          pageAppearance: pageAppearance, completion: {
+                            print("Done")
+                          })
     
-    tutorial.presentFrom(self, animated: true)
+    tutorial?.isDarkModeEnabled = true
+    tutorial?.presentFrom(self, animated: true)
   }
 }
