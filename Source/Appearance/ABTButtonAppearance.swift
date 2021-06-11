@@ -9,11 +9,23 @@
 import UIKit
 
 /// Defines the appearance of the `actionButton` and `nextButton`.
+///
+/// You can create a button appearance using the custom initializer:
+///
+/// ```swift
+/// let buttonAppearance = ABTButtonAppearance(titleColor: .black,
+///                                            backgroundColor: .systemPink,
+///                                            cornerRadius: .rounded)
+/// ```
 public struct ABTButtonAppearance {
   
   /// Specifies a corner radius style.
   public enum ABTCornerStyle {
+    
+    /// Completely rounds the corners of the button.
     case rounded
+    
+    /// Set the `cornerRadius` of the button to a custom value.
     case custom(CGFloat)
   }
   
@@ -52,7 +64,7 @@ public struct ABTButtonAppearance {
   /// - note: If not specified, defualts to no gradient.
   internal let gradient: CAGradientLayer?
 
-  /// Defines the appearance of a button inside a page.
+  /// Initializes the appearance of a button inside a page.
   public init(titleColor: UIColor = Color.black,
               backgroundColor: UIColor = .clear,
               cornerRadius: ABTCornerStyle = .custom(0),

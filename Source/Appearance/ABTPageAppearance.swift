@@ -8,7 +8,15 @@
 
 import UIKit
 
-/// Defines the appearance of the tutorial page.
+/// Defines the style of the tutorial page.
+///
+/// You can create a page appearance using the custom initializer:
+///
+/// ```swift
+/// let pageAppearance = ABTPageAppearance(titleColor: .black,
+///                                        backgroundColor: .systemPink,
+///                                        actionButtonAppearance: actionButtonAppearance)
+/// ```
 public struct ABTPageAppearance {
     
   /// The color used for the title text.
@@ -61,7 +69,7 @@ public struct ABTPageAppearance {
   /// - note: calling the completion with a `true` value on the action will advance the onboarding to the next page.
   internal let action: ABTOnboardPageAction?
   
-  /// Defines the appearance of a page.
+  /// Initializes the appearance of a page.
   public init(titleColor: UIColor? = nil,
               textColor: UIColor = Color.black,
               backgroundColor: UIColor = Color.white,

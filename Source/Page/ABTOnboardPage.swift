@@ -6,12 +6,13 @@
 //  Copyright © 2020 Francesco Leoni. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Lottie
 
 public typealias ABTOnboardPageCompletion = (_ action: ABTActionType, _ error: Error?) -> Void
 public typealias ABTOnboardPageAction = (@escaping ABTOnboardPageCompletion) -> Void
 
+/// The action to perform when the secondary button is tapped.
 public enum ABTActionType {
   case nextPage
   case lastPage
@@ -19,11 +20,13 @@ public enum ABTActionType {
   case none
 }
 
+/// The type of media to display in a single page.
 public enum ABTMediaType {
   case image(UIImage?)
   case animation(ABTLottieAnimation)
 }
 
+/// The onboarding page model to use to create a tutorial page.
 public struct ABTOnboardPage {
   
   /// The title text used for the top label of the tutorial page.

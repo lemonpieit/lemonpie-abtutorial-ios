@@ -5,6 +5,7 @@
 //  Created by Francesco Leoni on 12/11/2020.
 //
 
+import UIKit
 import Lottie
 
 /// A custom initializer that exposes Lottie animation API.

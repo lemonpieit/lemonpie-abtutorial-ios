@@ -4,12 +4,25 @@
 //
 //  Created by Francesco Leoni on 11/11/2020.
 //
-//  v 1.1.2
+//  v 1.1.3
 //
 
 import UIKit
 import Lottie
 
+/// The object that holds the tutorial `UIViewController`.
+///
+/// You can create a tutorial using the ``init(pageItems:pageAppearance:completion:)`` initializer:
+///
+/// ```swift
+/// let tutorial = ABTutorial(pageItems: pageItems,
+///                           pageAppearance: pageAppearance,
+///                           completion: completion)
+/// tutorial.presentFrom(self)
+/// ```
+/// - note:
+/// `ABTutorial` supports by default the dark mode. If you to disable it, you can do that using the ``isDarkModeEnabled`` property.
+///
 public final class ABTutorial: UIViewController {
     
   deinit {
@@ -53,18 +66,18 @@ public final class ABTutorial: UIViewController {
   ///
   /// - Parameters:
   ///   - viewController: The presenting view controller.
-  ///   - animated: Defines if the presentation should be animated.
-  public func presentFrom(_ viewController: UIViewController, animated: Bool) {
+  ///   - animated: Defines if the presentation should be animated. Defaults to `true`.
+  public func presentFrom(_ viewController: UIViewController, animated: Bool = true) {
     viewController.present(self, animated: animated)
   }
 
   // MARK: - Inits
   
-  /// Initializes a new `ABTutorial` to be presented.
+  /// Initializes a new ``ABTutorial`` to be presented.
   /// The onboard view controller encapsulates the whole onboarding flow.
   ///
   /// - Parameters:
-  ///   - pageItems: An array of `ABTOnboardPage` items.
+  ///   - pageItems: An array of ``ABTOnboardPage`` items.
   ///   - pageAppearance: An optional configuration for page customization.
   ///   - completion: An optional completion block that gets executed when the onboarding is dismissed.
   public required init(pageItems: [ABTOnboardPage], pageAppearance: ABTPageAppearance = ABTPageAppearance(), completion: (() -> Void)? = nil) {
@@ -129,6 +142,7 @@ public final class ABTutorial: UIViewController {
   }
     
   // MARK: - Helpers
+    
   private func configureButtons(forPage index: Int) {
     let page = viewModel.pageAt(index)
     

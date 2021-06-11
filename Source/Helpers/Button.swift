@@ -29,17 +29,20 @@ open class Button: UIButton {
     
   // MARK: - Public methods
 
-  /// Add action to execute on the specified event.
+  /// Add an action to execute on the specified event.
   ///
   /// - Parameters:
-  ///   - event: Constants describing the types of events possible for controls.
+  ///   - event: The control-specific events for which the action method is called.
   ///   - action: The action to perform.
   public func perform(for event: UIControl.Event = .touchUpInside, _ action: @escaping () -> Void) {
     self.action = action
     addTarget(self, action: #selector(actionToPerform), for: event)
   }
 
-  /// Configures the button with an `ABTButtonAppearance`.
+    /// Configures the button with an ``ABTButtonAppearance``.
+    /// - Parameters:
+    ///   - style: The style to apply to the button.
+    ///   - action: The action to perform on a touch event.
   public func configure(with style: ABTButtonAppearance, action: @escaping () -> Void) {
     self.perform(action)
     self.titleFont = style.font

@@ -11,7 +11,6 @@ enum ABTError: Error {
   case animationNotFoundWithName(String, Bundle)
   case animationNotFoundAtPath(String)
   case imageNotFound
-  #warning("Guarda se 'fileNotSupported' serve davvero.")
   case fileNotSupported
   case cannotAdvanceToPage(Int)
 }
