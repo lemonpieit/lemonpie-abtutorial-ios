@@ -63,15 +63,15 @@ pod install
 
 ```swift
 let page = ABTOnboardPage(title: "Title",
-description: "Description",
-[...])
+                          description: "Description",
+                          [...])
 
 let appearance = ABTPageAppearance(titleColor: .black,
-backgroundColor: .red,
-[...])
+                                   backgroundColor: .red,
+                                   [...])
 
 let tutorial = ABTutorial(pageItems: [page],
-pageAppearance: appearance)
+                          pageAppearance: appearance)
 
 tutorial.presentFrom(self, animated: true)
 ```
