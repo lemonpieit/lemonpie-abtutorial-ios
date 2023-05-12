@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal protocol ABTutorialViewModelDelegate: class {
+internal protocol ABTutorialViewModelDelegate: AnyObject {
   
   /// Updates and sets the current page to the `viewController` property of the `UIPageViewController`.
   func updateUI(for page: ABTOnboardingPageViewController)

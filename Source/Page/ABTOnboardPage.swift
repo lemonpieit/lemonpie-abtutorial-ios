@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Lottie
+//import Lottie
 
 public typealias ABTOnboardPageCompletion = (_ action: ABTActionType, _ error: Error?) -> Void
 public typealias ABTOnboardPageAction = (@escaping ABTOnboardPageCompletion) -> Void

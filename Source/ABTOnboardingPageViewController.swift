@@ -14,7 +14,7 @@ internal final class ABTOnboardingPageViewController: UIViewController {
   // MARK: - Page elements
   
   private var imageView: UIImageView?
-  private var animationView: AnimationView?
+  private var animationView: LottieAnimationView?
 
   private let titleLabel = UILabel()
   private let descriptionLabel = UILabel()
@@ -77,7 +77,7 @@ internal final class ABTOnboardingPageViewController: UIViewController {
     }
     
     if let animation = page.animation {
-      animationView = AnimationView()
+      animationView = LottieAnimationView()
       pageStackView.addArrangedSubview(animationView!)
       Config.animationView(animationView!, with: animation, in: pageStackView)
     }
@@ -166,7 +166,7 @@ private extension ABTOnboardingPageViewController {
       }
     }
     
-    static func animationView(_ animationView: AnimationView, with animation: ABTLottieAnimation?, in superview: UIStackView) {
+    static func animationView(_ animationView: LottieAnimationView, with animation: ABTLottieAnimation?, in superview: UIStackView) {
       if let animation = animation {
         [animationView.heightAnchor.constraint(equalTo: superview.heightAnchor, multiplier: 0.45)].activate()
         
