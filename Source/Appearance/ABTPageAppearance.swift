@@ -95,16 +95,6 @@ public struct ABTPageAppearance {
 
 public class Color {
   
-  private static var bundle: Bundle {
-    Bundle(for: self)
-  }
-
-  public static var white: UIColor {
-    return UIColor(named: "white", in: bundle, compatibleWith: nil)!
-  }
-  
-  public static var black: UIColor {
-    return UIColor(named: "black", in: bundle, compatibleWith: nil)!
-  }
-
+  public static var white = UIColor(named: "white", in: .module, compatibleWith: nil) ?? .white
+  public static var black = UIColor(named: "black", in: .module, compatibleWith: nil) ?? .black
 }
