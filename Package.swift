@@ -22,6 +22,9 @@ let package = Package(
         .target(
             name: "ABtutorial",
             dependencies: [.product(name: "Lottie", package: "lottie-ios")],
-            path: "Source")
+            path: "Source",
+            resources: [
+              .process("Assets/Colors.xcassets")
+            ])
     ]
 )
