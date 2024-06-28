@@ -17,9 +17,9 @@ Pod::Spec.new do |s|
                        
   s.homepage         = 'https://abenergie.visualstudio.com/ABtutorial.ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Luigi Aiello' => 'luigi.aiello@abenergie.it', 'Francesco Leoni' => 'francesco.leoni@abenergie.it' }
+  s.author           = { 'Francesco Leoni' => 'francesco.leoni@lemonpie.it' }
   s.source           = { :git => 'https://abenergie.visualstudio.com/_git/ABtutorial.ios', :tag => 'v1.1.3' }
-  s.social_media_url = 'https://github.com/fraleo2406'
+  s.social_media_url = 'https://github.com/francescoleoni98'
   s.social_media_url = 'https://github.com/mo3bius'
                        
   s.source_files = 'Source/**/*.swift'
